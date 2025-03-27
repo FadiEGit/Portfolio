@@ -1,1 +1,65 @@
-Just a test
+# Portfolio
+
+Welcome to my portfolio repository! This repository showcases my projects, skills, and accomplishments as a developer.
+
+## About Me
+
+I am a passionate developer with experience in Data Science. I enjoy solving problems, building innovative solutions, and continuously learning new technologies.
+
+## Projects
+
+Here are some of the projects featured in this portfolio:
+
+1. **Books**
+    - Description: Do different authors exhibit different *writing patterns*? Similar ones? What even qualifies as a "writing pattern"? 
+    - Link: [Link to the project or demo]
+
+2. **Chess**
+    - Description: [Brief description of the project]
+    - Link: [Link to the project or demo]
+
+3. **GPT_to_Pureflow**
+    - Description: Everyone loves flowcharts. Right? Pureflow is an iPad app that allows one to create them manually. Here's the kicker: it stores the flowchart as a JSON file on the backend. In theory, then, you can automate the creation of flowcharts by having ChatGPT return a JSON file. This is explored here.
+    - Link: [Link to the project or demo]
+
+4. **FitBit**
+    - Description: [Brief description of the project]
+    - Link: [Link to the project or demo]
+
+5. **Pocket_to_Onenote**
+    - Description: [Brief description of the project]
+    - Link: [Link to the project or demo]
+
+6. **Quran_to_Onenote**
+    - Description: While there may be only one Quran in Arabic, there are over 20 English translations. Can I stack these translations next to each other in a OneNote table? Can we learn anything interesting from the side-by-side comparison?
+    - Link: [Link to the project or demo]
+
+7. **NFL**
+    - Description: I've gotten really into watching Football recently, though I haven't played it since...middle school recess? 
+    - Link: [Link to the project or demo]
+
+8. **TV**
+    - Description: Having spent more time than I'm willing to admit watching old sitcoms, I've decided to make this work for me. If done correctly, I can say to the mirror that my childhood television-watching wasn't an utter waste of time. Did I succeed?
+    - Link: [Link to the project or demo]
+
+9. **Youtube**
+    - Description: If TV was my old vice, Youtube is my new one.
+    - Link: [Link to the project or demo]
+
+## Skills
+
+- Python
+- SQL
+- ML/AI Development
+- Data Viz
+- Airflow
+
+## Contact
+
+Feel free to reach out to me:
+
+- Email: FadiAElkhatib1@gmail.com
+- LinkedIn: [Here](https://www.linkedin.com/in/fadi-elkhatib-40b2a0157/)
+- GitHub: [Here](https://github.com/FadiEGit)
+
+Thank you for visiting my portfolio!
