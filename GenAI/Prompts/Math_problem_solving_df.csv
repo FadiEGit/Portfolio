@@ -1,0 +1,402 @@
+Prompting Technique,Example Prompt,gemini Response
+Zero-Shot Prompting,"Solve: If 3x + 5 = 20, what is x?","To solve for x in the equation 3x + 5 = 20, follow these steps:
+
+1.  **Subtract 5 from both sides of the equation** to isolate the term with x:
+    3x + 5 - 5 = 20 - 5
+    3x = 15
+
+2.  **Divide both sides by 3** to solve for x:
+    3x / 3 = 15 / 3
+    x = 5
+
+Therefore, **x = 5**."
+Few-Shot Prompting,Example 1: “2x + 4 = 10” → “x = 3”\nExample 2: “5x - 1 = 9” → “x = 2”\nNow solve: “4x + 8 = 24”,x = 4
+Chain-of-Thought Prompting,Step 1: Subtract 5 from both sides → 3x = 15\nStep 2: Divide both sides by 3 → x = 5,"These steps demonstrate how to solve a **linear equation** for the variable `x`.
+
+Let's break down what's happening, assuming the original equation before Step 1 was:
+**Original Equation: `3x + 5 = 20`**
+
+**Step 1: Subtract 5 from both sides → 3x = 15**
+*   **Purpose:** The goal is to isolate the term with `x` (which is `3x`) on one side of the equation. To do this, you eliminate the constant term (`+5`) from the left side.
+*   **Action:** By subtracting 5 from both sides, you maintain the equality of the equation.
+    *   `(3x + 5) - 5 = 20 - 5`
+    *   `3x = 15`
+
+**Step 2: Divide both sides by 3 → x = 5**
+*   **Purpose:** Now that `3x` is isolated, the goal is to find the value of `x` itself. `x` is currently being multiplied by 3.
+*   **Action:** To undo the multiplication by 3, you perform the inverse operation, which is division by 3. You must do this to both sides to keep the equation balanced.
+    *   `3x / 3 = 15 / 3`
+    *   `x = 5`
+
+**Summary:**
+You successfully solved the equation `3x + 5 = 20` (or similar) to find that `x = 5`. This is a standard two-step process for solving basic linear equations."
+Iterative Refinement Prompting,Initial solution: “x = 4”\nCritique: Plug x back into original: 3(4)+5 = 17 ≠ 20 → Incorrect\nRevise steps to find correct x.,"Okay, let's break down the process to correctly solve for 'x'.
+
+**1. Identify the Original Equation**
+
+Based on your critique (""3(4)+5 = 17 ≠ 20""), the original equation you were trying to solve is:
+**3x + 5 = 20**
+
+**2. Critique the Initial Attempt (x=4)**
+
+You correctly identified that plugging x=4 into the equation results in:
+3(4) + 5 = 12 + 5 = 17
+Since 17 ≠ 20, x=4 is indeed incorrect.
+
+**3. Revise Steps to Find the Correct x**
+
+The goal is to isolate 'x' on one side of the equation.
+
+*   **Step 1: Isolate the term with 'x'.**
+    To do this, we need to get rid of the constant (+5) on the left side. We perform the inverse operation, which is subtraction. Remember to do it to *both* sides of the equation to maintain balance.
+
+    3x + 5 - 5 = 20 - 5
+    **3x = 15**
+
+*   **Step 2: Isolate 'x'.**
+    Now, 'x' is being multiplied by 3. To isolate 'x', we perform the inverse operation, which is division. Again, do it to *both* sides of the equation.
+
+    3x / 3 = 15 / 3
+    **x = 5**
+
+**4. Verification**
+
+Now, plug our new solution (x=5) back into the original equation:
+
+3(5) + 5 = 20
+15 + 5 = 20
+**20 = 20**
+
+Since both sides are equal, the solution **x = 5** is correct."
+Tree-of-Thought Prompting,"Explore multiple solution paths: 1) isolate x, 2) trial and error, 3) graphically.\nCompare approaches for efficiency and correctness.","Let's explore three common solution paths for solving equations: isolating x (algebraic), trial and error, and graphically. We'll use a few example equations to illustrate and compare their efficiency and correctness.
+
+---
+
+### Example Equations:
+
+1.  **Linear Equation:** `2x + 5 = 11`
+2.  **Slightly More Complex Linear Equation:** `3(x - 2) = x + 4`
+3.  **Quadratic Equation:** `x^2 - 4x + 3 = 0` (This will highlight the limitations of some methods)
+4.  **Linear Equation with Non-Integer Solution:** `0.5x - 1 = 2.5`
+
+---
+
+### Solution Path 1: Isolate x (Algebraic Method)
+
+This method involves using inverse operations to manipulate the equation, moving all terms containing the variable to one side and constants to the other, ultimately solving for the variable.
+
+**General Steps:**
+1.  Distribute and combine like terms on both sides of the equation.
+2.  Move all terms with the variable to one side (e.g., left) and constant terms to the other side (e.g., right) by adding or subtracting.
+3.  Isolate the variable by dividing or multiplying by its coefficient.
+4.  For quadratic equations, set the equation to zero, then factor, complete the square, or use the quadratic formula.
+
+---
+
+**Applying to Examples:**
+
+*   **1. `2x + 5 = 11`**
+    *   Subtract 5 from both sides: `2x = 11 - 5`
+    *   `2x = 6`
+    *   Divide by 2: `x = 6 / 2`
+    *   **Solution: `x = 3`**
+
+*   **2. `3(x - 2) = x + 4`**
+    *   Distribute the 3: `3x - 6 = x + 4`
+    *   Subtract `x` from both sides: `3x - x - 6 = 4`
+    *   `2x - 6 = 4`
+    *   Add 6 to both sides: `2x = 4 + 6`
+    *   `2x = 10`
+    *   Divide by 2: `x = 10 / 2`
+    *   **Solution: `x = 5`**
+
+*   **3. `x^2 - 4x + 3 = 0`**
+    *   This is a quadratic equation already set to zero. We can factor it.
+    *   Find two numbers that multiply to 3 and add to -4: -1 and -3.
+    *   `(x - 1)(x - 3) = 0`
+    *   Set each factor to zero:
+        *   `x - 1 = 0` => `x = 1`
+        *   `x - 3 = 0` => `x = 3`
+    *   **Solutions: `x = 1` and `x = 3`**
+
+*   **4. `0.5x - 1 = 2.5`**
+    *   Add 1 to both sides: `0.5x = 2.5 + 1`
+    *   `0.5x = 3.5`
+    *   Divide by 0.5 (or multiply by 2): `x = 3.5 / 0.5`
+    *   **Solution: `x = 7`**
+
+---
+
+### Solution Path 2: Trial and Error (Guess and Check)
+
+This method involves guessing a value for the variable, substituting it into the equation, and checking if it makes the equation true. The guess is then adjusted based on the result until a solution is found.
+
+**General Steps:**
+1.  Guess a value for the variable.
+2.  Substitute the guessed value into both sides of the equation.
+3.  Evaluate both sides.
+4.  If both sides are equal, the guess is a solution.
+5.  If not, adjust the guess (e.g., if the left side is too low, try a higher number for x, or vice-versa) and repeat.
+
+---
+
+**Applying to Examples:**
+
+*   **1. `2x + 5 = 11`**
+    *   Try `x = 1`: `2(1) + 5 = 7` (Too low, need 11)
+    *   Try `x = 5`: `2(5) + 5 = 15` (Too high)
+    *   Try `x = 3`: `2(3) + 5 = 6 + 5 = 11` (Correct!)
+    *   **Solution: `x = 3`**
+
+*   **2. `3(x - 2) = x + 4`**
+    *   Try `x = 0`: `3(0 - 2) = -6`; `0 + 4 = 4` (Not equal, -6 < 4, so need higher x)
+    *   Try `x = 4`: `3(4 - 2) = 3(2) = 6`; `4 + 4 = 8` (Still low on left, need higher x)
+    *   Try `x = 5`: `3(5 - 2) = 3(3) = 9`; `5 + 4 = 9` (Correct!)
+    *   **Solution: `x = 5`**
+
+*   **3. `x^2 - 4x + 3 = 0`**
+    *   Try `x = 0`: `0^2 - 4(0) + 3 = 3` (Not 0)
+    *   Try `x = 1`: `1^2 - 4(1) + 3 = 1 - 4 + 3 = 0` (Correct! Found one solution)
+    *   Try `x = 2`: `2^2 - 4(2) + 3 = 4 - 8 + 3 = -1` (Not 0, suggests another solution might be higher)
+    *   Try `x = 3`: `3^2 - 4(3) + 3 = 9 - 12 + 3 = 0` (Correct! Found the second solution)
+    *   **Solutions: `x = 1` and `x = 3`**
+
+*   **4. `0.5x - 1 = 2.5`**
+    *   Try `x = 1`: `0.5(1) - 1 = -0.5` (Too low)
+    *   Try `x = 5`: `0.5(5) - 1 = 2.5 - 1 = 1.5` (Still too low, but getting closer)
+    *   Try `x = 8`: `0.5(8) - 1 = 4 - 1 = 3` (Too high now. Solution is between 5 and 8)
+    *   Try `x = 7`: `0.5(7) - 1 = 3.5 - 1 = 2.5` (Correct!)
+    *   **Solution: `x = 7`**
+
+---
+
+### Solution Path 3: Graphically
+
+This method involves graphing the expressions on both sides of the equation as separate functions and finding their intersection point(s). Alternatively, you can rearrange the equation so one side is zero (e.g., `f(x) = 0`) and find the x-intercept(s) of the resulting function.
+
+**General Steps:**
+1.  Rewrite the equation in the form `y1 = f(x)` and `y2 = g(x)`.
+2.  Graph both `y1` and `y2` on the same coordinate plane.
+3.  The x-coordinate(s) of the intersection point(s) are the solution(s).
+    *   *Alternative:* Rearrange the equation to `f(x) = 0`. Graph `y = f(x)` and find the x-intercepts (where the graph crosses the x-axis).
+
+---
+
+**Applying to Examples:**
+
+*   **1. `2x + 5 = 11`**
+    *   Let `y1 = 2x + 5` (a line) and `y2 = 11` (a horizontal line).
+    *   Graph both. They intersect at the point `(3, 11)`.
+    *   **Solution: `x = 3`**
+
+*   **2. `3(x - 2) = x + 4`**
+    *   Let `y1 = 3(x - 2)` (a line) and `y2 = x + 4` (another line).
+    *   Graph both. They intersect at the point `(5, 9)`.
+    *   **Solution: `x = 5`**
+
+*   **3. `x^2 - 4x + 3 = 0`**
+    *   Let `y = x^2 - 4x + 3` (a parabola).
+    *   Find the x-intercepts (where `y=0`). The graph crosses the x-axis at `x = 1` and `x = 3`.
+    *   **Solutions: `x = 1` and `x = 3`**
+
+*   **4. `0.5x - 1 = 2.5`**
+    *   Let `y1 = 0.5x - 1` (a line) and `y2 = 2.5` (a horizontal line).
+    *   Graph both. They intersect at the point `(7, 2.5)`.
+    *   **Solution: `x = 7`**
+
+---
+
+### Comparison of Approaches:
+
+| Feature      | 1. Isolate x (Algebraic)                               | 2. Trial and Error                                   | 3. Graphically                                          |
+| :----------- | :----------------------------------------------------- | :--------------------------------------------------- | :------------------------------------------------------ |
+| **Efficiency** | **High** for most linear and polynomial equations. Requires specific rules but is direct. Can be tedious for complex equations without a known formula (e.g., transcendental). | **Very Low** for anything beyond simple integer solutions. Extremely inefficient for non-integers, multiple solutions, or complex equations. | **Moderate to High** with graphing technology (calculator, software). Very slow and imprecise if done manually. |
+| **Correctness** | **Highest.** Provides exact solutions. Least prone to error if rules are followed. Guarantees finding *all* algebraic solutions. | **Very Low.** Highly dependent on luck. No guarantee of finding *any* solution, let alone *all* solutions, or the *exact* solution. Good for checking a *known* solution. | **Moderate to High.** Provides a visual estimate. Can be imprecise for exact non-integer/irrational solutions without advanced tracing features. May miss solutions if the viewing window isn't set correctly. Excellent for understanding behavior and the *number* of solutions. |
+| **Prerequisites** | Strong understanding of algebraic properties, inverse operations, order of operations, and specific formulas (e.g., quadratic formula, factoring). | Basic arithmetic and substitution. | Understanding of functions, coordinate planes, and how to plot points/curves. Often requires a graphing calculator or software for precision. |
+| **Best Use Cases** | Most common and reliable method for solving equations precisely. Essential for higher-level mathematics. | Quick check for simple integer solutions or verifying a known answer. (Generally not recommended for finding solutions). | Visualizing solutions, understanding function behavior, finding approximate solutions for complex equations, identifying the number of solutions, or when an algebraic solution is difficult/impossible. |
+
+**Conclusion:**
+
+*   **Isolating x (Algebraic)** is generally the most **efficient** and **correct** method for solving most equations encountered in algebra. It provides exact solutions and is the foundation of mathematical problem-solving.
+*   **Trial and Error** is primarily useful for extremely simple equations with obvious integer solutions, or for quickly checking if a given value is a solution. It is highly **inefficient** and **unreliable** for finding solutions in general.
+*   **Graphical methods** are excellent for visualization, estimating solutions, and identifying the number of solutions, especially with technology. While generally **efficient** with tools, their **correctness** can be limited by the precision of the graph or the viewing window. They are invaluable when algebraic methods are too complex or impossible (e.g., for some transcendental equations).
+
+In practice, a combination of these methods is often most effective. For instance, an algebraic solution might be confirmed graphically, or a graphical estimate might guide an algebraic approach."
+Role-Playing Prompting,"You are a math tutor explaining to a middle school student. Solve and explain: “If a triangle has angles 40° and 60°, what is the third angle?”","Hey there! This is a great question about triangles, and it uses a super important rule that will help you with lots of geometry problems.
+
+Let's break it down!
+
+### The Big Secret About Triangles
+
+Here's the *secret* about all triangles, no matter how big or small, or what shape they are:
+
+If you add up all three angles *inside* any triangle, they will **always** equal exactly **180 degrees**.
+
+Think of it like a hidden rule that all triangles have to follow! Imagine you could rip off the three corners of a triangle and line them up next to each other – they would always form a perfectly straight line, which is 180 degrees!
+
+### Let's Solve Your Problem!
+
+Okay, so we know two of the angles in our triangle: 40 degrees and 60 degrees. And we know that all three angles *together* must make 180 degrees.
+
+**Step 1: Add the angles you know.**
+First, let's see how much space the two angles we already know take up.
+*   40° + 60° = **100°**
+
+So, the first two angles together are 100 degrees.
+
+**Step 2: Find the missing piece!**
+We know all three angles *must* add up to 180°. We've already used up 100° with the first two angles. So, to find the third angle, we just subtract the sum of the angles we know from the total of 180°.
+
+*   180° (total for all three angles) - 100° (sum of the two angles we know) = **80°**
+
+### The Answer!
+
+So, the third angle in your triangle is **80 degrees**.
+
+**To check our work:**
+Does 40° + 60° + 80° = 180°?
+Yes! 100° + 80° = 180°. Perfect!
+
+Does that make sense? Let me know if you have any more questions!"
+Self-Critique Prompting,"Solve this equation, then evaluate your answer for potential calculation errors or logic gaps. Provide a corrected solution if needed.","Okay, I'm ready! Please provide the equation you'd like me to solve.
+
+Once you provide it, I will:
+
+1.  **Solve the equation** step-by-step.
+2.  **Evaluate my own solution** for potential calculation errors or logic gaps.
+3.  **Provide a corrected solution** if any issues are found during my evaluation, explaining the correction.
+
+Looking forward to it!"
+Retrieval-Augmented Prompting,Use known geometry theorems from a reference database to solve: “What is the area of a circle with radius 5?”,"To solve for the area of a circle with radius 5, we will use a fundamental geometry theorem related to circles.
+
+**Known Geometry Theorem:**
+
+*   **Theorem Name:** Area of a Circle Theorem
+*   **Statement:** The area ($A$) of a circle is equal to the product of pi ($\pi$) and the square of its radius ($r$).
+*   **Formula:** $A = \pi r^2$
+
+**Solution:**
+
+1.  **Identify the given value:**
+    The radius ($r$) of the circle is 5.
+
+2.  **Apply the Area of a Circle Theorem formula:**
+    $A = \pi r^2$
+
+3.  **Substitute the given radius into the formula:**
+    $A = \pi (5)^2$
+
+4.  **Calculate the square of the radius:**
+    $5^2 = 25$
+
+5.  **Multiply by pi:**
+    $A = 25\pi$
+
+The area of a circle with radius 5 is **$25\pi$ square units**."
+Prompt Chaining,Prompt 1: Identify type of problem (algebra)\nPrompt 2: Isolate variable\nPrompt 3: Check solution by substitution,"Let's work through an algebra problem following your prompts.
+
+**Problem Chosen:**
+`5x - 8 = 17`
+
+---
+
+**Prompt 1: Identify type of problem (algebra)**
+
+This is a **linear equation in one variable**. It is a fundamental type of algebraic equation where the highest power of the variable is 1.
+
+---
+
+**Prompt 2: Isolate variable**
+
+The goal is to get 'x' by itself on one side of the equation.
+
+1.  **Add 8 to both sides of the equation** to eliminate the constant term on the left side:
+    `5x - 8 + 8 = 17 + 8`
+    `5x = 25`
+
+2.  **Divide both sides of the equation by 5** to isolate 'x':
+    `5x / 5 = 25 / 5`
+    `x = 5`
+
+**The isolated variable solution is x = 5.**
+
+---
+
+**Prompt 3: Check solution by substitution**
+
+Substitute the value `x = 5` back into the original equation `5x - 8 = 17` to verify if both sides are equal.
+
+1.  **Substitute x = 5 into the original equation:**
+    `5(5) - 8 = 17`
+
+2.  **Perform the multiplication:**
+    `25 - 8 = 17`
+
+3.  **Perform the subtraction:**
+    `17 = 17`
+
+Since both sides of the equation are equal (17 = 17), the solution `x = 5` is correct."
+Meta-Prompting,"Generate a prompt that helps a student not just solve, but understand quadratic equations using visual aids and analogies.","Here's a prompt designed to help a student deeply understand quadratic equations using visual aids and analogies:
+
+---
+
+**Prompt: Unlocking the Secret Language of Parabolas**
+
+Imagine you're a designer for a new amusement park, and your specialty is creating incredible roller coaster drops, thrilling water fountain jets, or beautiful archways. All these designs follow a specific mathematical path: the **parabola**, which is described by **quadratic equations**.
+
+Your task is not just to *solve* a quadratic equation, but to truly *understand* what it's telling you and how its different parts influence the ""shape"" of your design.
+
+**Part 1: The Grand Design – Visualizing the Parabola**
+
+1.  **The ""A-Ha!"" Moment:** Start by drawing a simple sketch of a basic parabola. Think about the path a ball takes when you throw it up in the air, or the shape of a rainbow, or a satellite dish. Label the key features you notice (like the highest/lowest point, where it crosses the horizontal line).
+2.  **The Master Formula:** Write down the standard form of a quadratic equation: `ax² + bx + c = 0`.
+3.  **The Influencers (a, b, c):**
+    *   **'a' – The Direction & Stretch:** Using your sketch or a new one, show how changing the value of 'a' (e.g., from positive to negative, or from a small number to a large number) affects the parabola.
+        *   *Analogy:* If the parabola is a **smiley face** or a **frowning face**, what does 'a' tell you about its mood? If it's a **rubber band**, what does 'a' tell you about how stretched or squished it is?
+    *   **'c' – The Starting Line:** On your sketch, point out what 'c' represents.
+        *   *Analogy:* If the parabola is a **roller coaster track**, what does 'c' tell you about the height of the **starting platform**?
+    *   **'b' – The Hidden Push/Pull:** This one is trickier. 'b' influences where the parabola is horizontally and its symmetry.
+        *   *Analogy:* If your parabola is a **fountain jet**, what does 'b' tell you about the **angle or strength of the initial push of water** that makes the jet land further or closer, or shifts its peak?
+
+**Part 2: Finding the ""Ground Level"" – What Does ""Solving"" Mean?**
+
+1.  **The Destination:** In the context of your parabola sketch and roller coaster/fountain analogy, what does it mean when we ""solve"" a quadratic equation for 'x'? What are we actually trying to find?
+    *   *Analogy:* If your parabola is a **bridge arch**, what do the solutions for 'x' represent about where the **bridge meets the land on either side**?
+2.  **The Possibilities:** Why might a quadratic equation have two solutions, one solution, or no real solutions?
+    *   *Visual Explanation:* Draw simple sketches for each of these three scenarios, showing how the parabola interacts with the ""ground level"" (the x-axis).
+
+**Part 3: The Toolkit – Solving Methods, Visually & Analogically**
+
+Now, let's explore the common ways to solve quadratic equations. For each method, explain *how* it works and create a unique visual aid or analogy that helps you remember and understand it.
+
+1.  **Factoring – The ""Lego Deconstruction"":**
+    *   *How it works:* Explain the process of factoring a quadratic equation (e.g., finding two numbers that multiply to 'c' and add to 'b').
+    *   *Visual/Analogy:* Imagine your quadratic equation is a complex **Lego model**. How does factoring break it down into its simpler, interlocking **Lego bricks (factors)** that, when combined, rebuild the original model? Draw a diagram of this ""deconstruction.""
+2.  **Quadratic Formula – The ""Master Key"":**
+    *   *How it works:* Write down the quadratic formula. Explain that it's a ""plug-and-play"" method that always works.
+    *   *Visual/Analogy:* If quadratic equations are **locked boxes**, the quadratic formula is a **universal skeleton key** that can open *any* of them, no matter how complex. Show how you ""insert"" the values of 'a', 'b', and 'c' into the key. What does the ""±"" tell you about the key's ability to find multiple ""unlocking points""?
+3.  **Completing the Square – ""Building the Perfect Garden"":**
+    *   *How it works:* Explain the steps involved in completing the square (manipulating the equation to create a perfect square trinomial).
+    *   *Visual/Analogy:* Imagine you have a **garden plot** that's almost square, but not quite. How does ""completing the square"" involve **adding a specific piece of land** to make it a perfect, symmetrical square? Draw this garden transformation, showing the areas involved.
+
+**Part 4: Your Turn! – Putting Knowledge into Practice**
+
+Choose ONE of the following quadratic equations:
+
+*   `y = x² - 4x + 3`
+*   `y = -x² + 6x - 5`
+*   `y = 2x² + 4x - 6`
+
+1.  **Analyze the Equation:** Based on the values of 'a', 'b', and 'c', describe what you expect its parabola to look like (e.g., opens up/down, where it crosses the y-axis, general position).
+2.  **Solve it!** Use **at least two different methods** (Factoring, Quadratic Formula, or Completing the Square) to find the solutions for 'x' when y = 0. Show all your steps clearly.
+3.  **Connect to Your Visual:** On your initial sketch (or a new one), accurately mark the points where your parabola crosses the x-axis, based on the solutions you found. How do these points relate to your initial predictions?
+
+**Reflection:**
+
+*   What was the most challenging part of understanding quadratic equations, and how did using visuals or analogies help you overcome it?
+*   Which analogy or visual was most helpful to *you*, and why?
+*   How has this exercise changed your understanding of quadratic equations beyond just finding the answers?
+
+---
+
+**Submission:** Present your work as a mini-portfolio, including your sketches, explanations, analogies, and the solved example. You can use drawings, diagrams, and written explanations. Be creative!"

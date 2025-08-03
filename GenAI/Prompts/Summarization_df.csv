@@ -1,0 +1,243 @@
+Prompting Technique,Example Prompt,gemini Response
+Zero-Shot Prompting,Summarize the following article in one paragraph.,Please provide the article you would like me to summarize! I need the text to be able to condense it into one paragraph.
+Few-Shot Prompting,"Example 1: “Original: ‘Cats are independent animals…’ → Summary: ‘Cats prefer autonomy.’”\nExample 2: “Original: ‘The economy is showing signs…’ → Summary: ‘Economic recovery is underway.’”\nNow summarize: “Despite protests, the bill passed into law…”",Summary: “Bill passed despite protests.”
+Chain-of-Thought Prompting,"First, identify the main topic. Then, extract key events or points. Finally, condense these into a single paragraph summary.","It looks like the text or content you'd like me to analyze is missing!
+
+Please provide the text, and I will be happy to:
+
+1.  Identify the main topic.
+2.  Extract the key events or points.
+3.  Condense them into a single paragraph summary."
+Iterative Refinement Prompting,"Initial summary: “The company made profits.”\nImprove by adding specific details about time, reasons, and context. Revise again for clarity and tone.","Okay, let's break down the process of improving that summary.
+
+**Initial Summary:** ""The company made profits.""
+
+---
+
+**Step 1: Improve by adding specific details about time, reasons, and context.**
+
+*   **Time:** When did this happen? (Last quarter? Fiscal year? Specific period?)
+*   **Reasons:** Why did they make profits? (Increased sales? Reduced costs? New product success? Market expansion?)
+*   **Context:** What does this mean? (Exceeded expectations? First time? Positions them for something?)
+
+**Draft 1 (Adding Specific Details):**
+
+""The company reported substantial profits for the past fiscal year, primarily driven by robust sales growth in key markets and effective cost management initiatives. This performance exceeded internal projections.""
+
+*   **Time:** ""past fiscal year""
+*   **Reasons:** ""robust sales growth in key markets,"" ""effective cost management initiatives""
+*   **Context:** ""exceeded internal projections""
+
+---
+
+**Step 2: Revise again for clarity and tone.**
+
+Let's refine Draft 1 for stronger phrasing, better flow, and a more professional tone. We can also make the ""reasons"" slightly more descriptive.
+
+**Revised Summary (Clarity & Tone):**
+
+""For the fiscal year ending December 31st, the company achieved record profitability, a direct result of successful market expansion into new regions and rigorous cost efficiencies across its supply chain. This strong financial performance not only surpassed analyst expectations but also strategically positions the company for significant future investments in product development and market share growth.""
+
+**Breakdown of Improvements in the Revised Summary:**
+
+*   **Clarity & Specificity of Time:** ""For the fiscal year ending December 31st"" (more precise than ""past fiscal year"").
+*   **Clarity & Specificity of Profit Level:** ""achieved record profitability"" (stronger and clearer than ""substantial profits"").
+*   **Clarity & Specificity of Reasons:** ""a direct result of successful market expansion into new regions and rigorous cost efficiencies across its supply chain"" (more active voice, more detailed examples of reasons).
+*   **Enhanced Context & Impact:** ""not only surpassed analyst expectations but also strategically positions the company for significant future investments in product development and market share growth"" (adds external benchmark, clearly states the implications for the future).
+*   **Tone:** Professional, confident, and forward-looking.
+
+---
+
+**Comparison:**
+
+*   **Initial:** ""The company made profits."" (Too vague)
+*   **Improved (Draft 1):** ""The company reported substantial profits for the past fiscal year, primarily driven by robust sales growth in key markets and effective cost management initiatives. This performance exceeded internal projections."" (Good start, adds details)
+*   **Revised (Final):** ""For the fiscal year ending December 31st, the company achieved record profitability, a direct result of successful market expansion into new regions and rigorous cost efficiencies across its supply chain. This strong financial performance not only surpassed analyst expectations but also strategically positions the company for significant future investments in product development and market share growth."" (Clear, detailed, professional, impactful)"
+Tree-of-Thought Prompting,"Summarize this news article in three ways: 1) in 1 sentence, 2) in bullet points, 3) in an executive summary. Evaluate which is most useful.","Certainly! I can definitely help you summarize a news article in those three ways and then evaluate their usefulness.
+
+However, **I need you to provide the news article first!**
+
+Please paste the text of the news article here, and I will then generate:
+
+1.  **A 1-sentence summary:** A concise, single sentence capturing the main idea.
+2.  **Bullet points:** Key facts and main takeaways presented in an easy-to-scan list.
+3.  **An executive summary:** A more comprehensive overview, including context, key findings, and potential implications, suitable for decision-makers.
+
+Once I have the article, I will proceed with the summaries and the evaluation!"
+Role-Playing Prompting,"You are a research assistant preparing summaries for a professor. Summarize the following academic paper in 200 words, focusing on the results.","**Summary of Results:**
+
+This study investigated the impact of chronic partial sleep deprivation on executive function and emotional regulation in young adults, employing a controlled 2-week intervention. The results revealed significant dose-dependent impairments across multiple domains.
+
+Participants subjected to moderate (6 hours/night) and severe (4 hours/night) sleep restriction exhibited marked deficits in executive functions, specifically reduced working memory capacity and impaired sustained attention. Emotionally, both deprivation groups reported significantly increased irritability, anxiety, and diminished positive affect, alongside a reduced capacity for emotional regulation. Physiologically, sleep-deprived participants showed elevated cortisol levels and decreased heart rate variability, which correlated with the observed cognitive and emotional declines.
+
+A clear dose-response relationship emerged: greater sleep restriction correlated with more pronounced impairments across all cognitive, emotional, and physiological markers. These findings underscore that even moderate chronic sleep deficits have pervasive and measurable negative consequences for young adults' cognitive abilities and emotional well-being."
+Self-Critique Prompting,"Summarize the passage. Now evaluate your summary: is anything missing, overstated, or too vague? Revise to improve accuracy.","Okay, let's create a hypothetical passage and then go through the summarization and evaluation process.
+
+---
+
+### **The Hypothetical Passage:**
+
+**(Imagine you just read this)**
+
+""The invention of the internet in the late 20th century, building upon decades of ARPANET development and research into packet switching, truly revolutionized global communication and information access. While its initial purpose was primarily academic and military, by the mid-1990s, the introduction of the World Wide Web by Tim Berners-Lee made it accessible to the general public, leading to an explosion in its adoption. This shift had profound economic, social, and political consequences. Economically, it spurred the growth of e-commerce, digital services, and a new 'dot-com' industry, creating unprecedented wealth but also leading to market bubbles. Socially, it fostered new forms of interaction through email, forums, and later social media, connecting people across vast distances and facilitating the rapid dissemination of news and cultural trends. However, it also introduced challenges like digital divides, privacy concerns, and the spread of misinformation. Politically, the internet enabled new forms of activism and citizen engagement, as seen in movements like the Arab Spring, but simultaneously presented governments with challenges related to censorship, surveillance, and cyber warfare. The internet's impact continues to evolve, constantly redefining how we work, learn, and interact.""
+
+---
+
+### **Initial Summary:**
+
+""The internet, developed from ARPANET and packet switching, revolutionized communication and information access. The World Wide Web made it public in the mid-90s, causing economic, social, and political changes. It created e-commerce and new industries, connected people through various platforms, and enabled political activism. However, it also brought issues like privacy concerns and misinformation. Its influence is still changing how we live.""
+
+---
+
+### **Evaluation of the Initial Summary:**
+
+Let's assess it against the ""missing, overstated, or too vague"" criteria.
+
+1.  **Missing:**
+    *   **Specific inventor of the Web:** Tim Berners-Lee is a key detail from the original passage that isn't included.
+    *   **Initial purpose:** The passage mentions ""academic and military"" origins, which is a good contextual detail.
+    *   **Economic downside beyond bubbles:** It mentions ""market bubbles"" but doesn't explicitly state the *creation of unprecedented wealth* (though implied by ""new industries"").
+    *   **Social downside beyond privacy/misinformation:** ""Digital divides"" are mentioned in the passage but missing in the summary.
+    *   **Political downside/challenge for governments:** The passage explicitly mentions ""censorship, surveillance, and cyber warfare"" as challenges for governments, which are missing.
+    *   **Specific examples of political impact:** ""Arab Spring"" is a concrete example used in the passage that adds weight.
+
+2.  **Overstated:**
+    *   Nothing immediately jumps out as significantly overstated. The claims are generally balanced by mentioning both positive and negative aspects.
+
+3.  **Too Vague:**
+    *   ""Economic, social, and political changes"" could be slightly more precise in the opening, or at least the subsequent elaboration needs to be more comprehensive to cover *all* the key points for each area.
+    *   ""Connected people through various platforms"" is okay, but ""email, forums, and later social media"" is more specific.
+    *   ""Its influence is still changing how we live"" is a bit generic; ""redefining how we work, learn, and interact"" is more specific from the original.
+
+---
+
+### **Revised Summary:**
+
+""The internet, evolving from ARPANET and packet switching in the late 20th century, revolutionized global communication. Its public accessibility, thanks to Tim Berners-Lee's World Wide Web in the mid-1990s, led to profound economic, social, and political transformations. Economically, it spurred e-commerce and new industries, creating wealth but also market bubbles. Socially, it connected people via email, forums, and social media, disseminating news and culture, though it also introduced digital divides, privacy concerns, and misinformation. Politically, the internet enabled activism (e.g., Arab Spring) but presented governments with challenges like censorship and cyber warfare. Its impact continues to evolve, redefining how we work, learn, and interact.""
+
+---
+
+### **Self-Correction Rationale for Revision:**
+
+*   **Tim Berners-Lee:** Added for accuracy and completeness as a key figure.
+*   **""Economic downside beyond bubbles"" and ""unprecedented wealth"":** Incorporated ""creating wealth"" to balance the economic impact.
+*   **""Digital divides"":** Added to the social challenges for a more complete picture.
+*   **""Censorship, surveillance, and cyber warfare"":** Included these specific challenges for governments to be less vague about political downsides.
+*   **""Arab Spring"":** Used this specific example to illustrate political activism, making the summary more concrete.
+*   **""Redefining how we work, learn, and interact"":** Adopted the more specific phrasing from the original passage to improve clarity over ""changing how we live.""
+*   **Initial purpose:** While important, keeping the summary concise meant prioritizing impact over very early origins. It's a judgment call, but for a general summary of *impact*, the ""public accessibility"" is more crucial.
+*   **Flow and conciseness:** Reviewed sentence structure to ensure it flows well and remains concise, avoiding unnecessary words while adding precision."
+Retrieval-Augmented Prompting,Use supporting context from trusted sources to summarize this excerpt about World War II while clarifying technical terms.,"Please provide the excerpt about World War II you would like me to summarize and clarify.
+
+Without the specific text, I cannot provide an accurate summary or pinpoint the exact technical terms you need clarified.
+
+**Once you provide the excerpt, I will be able to:**
+
+1.  **Summarize the main points** of the passage.
+2.  **Identify and explain technical terms**, historical figures, military strategies, or specific events mentioned within the text.
+3.  **Provide supporting historical context** from trusted sources to deepen understanding.
+
+---
+
+**However, to give you an idea of how I would approach this, let's imagine a hypothetical excerpt that mentions ""Blitzkrieg"" and ""Appeasement"":**
+
+***
+
+**[Hypothetical Excerpt Snippet:]**
+""The rapid German advance through Poland and France in the early years of World War II showcased the devastating effectiveness of their **Blitzkrieg** strategy. This contrasted sharply with the policy of **appeasement** adopted by Britain and France in the late 1930s, which had failed to deter Hitler's expansionist ambitions.""
+
+***
+
+**Here's how I would summarize and clarify such an excerpt:**
+
+**Summary of Hypothetical Excerpt:**
+This excerpt highlights two critical aspects of the early phase of World War II: the overwhelming speed and power of the German military's ""Blitzkrieg"" tactics, and the prior, unsuccessful diplomatic strategy of ""appeasement"" pursued by Allied powers in an attempt to avoid war. It suggests that while appeasement failed to prevent conflict, Blitzkrieg was highly effective in Germany's initial military campaigns.
+
+**Clarification of Technical Terms and Context:**
+
+1.  **Blitzkrieg (German: ""Lightning War"")**
+    *   **Definition:** A military doctrine and tactic designed to create psychological shock and disorganization in enemy forces through the use of surprise, speed, and overwhelming force. It typically involves rapid, highly coordinated attacks by concentrated armored units (tanks, or *Panzers*), motorized infantry, and close air support (*Luftwaffe* dive bombers like the Stuka).
+    *   **Significance in WWII:** Blitzkrieg was fundamentally different from the slow, attritional trench warfare of World War I. It allowed Germany to achieve swift victories over Poland (1939), Norway (1940), Denmark (1940), the Netherlands (1940), Belgium (1940), and France (1940). Its aim was to bypass enemy static defenses, punch through weak points, and encircle large enemy forces before they could react or reinforce.
+    *   **Supporting Context/Source:** The Imperial War Museums (IWM) describes Blitzkrieg as ""a method of warfare whereby an attacking force, spearheaded by a dense concentration of motorized and mechanized infantry and armour, supported by overwhelming air power, smashes through the enemy's line of defence by a sudden, intense and surprising assault."" (Source: Imperial War Museums - IWM.org.uk)
+
+2.  **Appeasement**
+    *   **Definition:** A diplomatic policy of making political, material, or territorial concessions to an aggressive power in order to avoid conflict. In the context of the late 1930s leading up to WWII, it primarily refers to the policy adopted by the British Prime Minister Neville Chamberlain and, to a lesser extent, French leaders, towards Nazi Germany.
+    *   **Significance in WWII:** The most infamous act of appeasement was the Munich Agreement of September 1938, where Britain and France agreed to allow Germany to annex the Sudetenland (a German-speaking region of Czechoslovakia) in exchange for Hitler's promise of no further territorial demands. This policy was largely based on the hope that satisfying Hitler's initial demands would prevent a larger war. However, Hitler continued his expansionist policies, invading the rest of Czechoslovakia in March 1939 and Poland in September 1939, proving appeasement ineffective and ultimately leading to the declaration of war.
+    *   **Supporting Context/Source:** The United States Holocaust Memorial Museum (USHMM) notes that ""Appeasement as a foreign policy meant making concessions to the dictatorial powers in order to avoid conflict. It was most closely associated with Neville Chamberlain’s foreign policy towards Nazi Germany."" (Source: United States Holocaust Memorial Museum - USHMM.org) Many historians now view appeasement as a catastrophic failure that emboldened aggressive dictators.
+
+**Trusted Sources for WWII Information:**
+
+*   **Academic Institutions:** University presses, historical departments of universities (e.g., Oxford, Cambridge, Harvard, Yale).
+*   **Museums & Archives:**
+    *   The National WWII Museum (New Orleans, USA)
+    *   Imperial War Museums (IWM, UK)
+    *   United States Holocaust Memorial Museum (USHMM, USA)
+    *   National Archives and Records Administration (NARA, USA)
+    *   Musée de l'Armée (Paris, France)
+*   **Reputable Encyclopedias & Reference Works:**
+    *   Encyclopædia Britannica
+    *   Oxford Reference
+*   **Scholarly Journals & Books:** Publications from historians specializing in WWII.
+
+---
+
+Please provide your specific excerpt, and I will be happy to assist you in detail!"
+Prompt Chaining,Prompt 1: Extract all named entities. Prompt 2: Identify key actions. Prompt 3: Combine findings into a concise summary.,"Okay, I understand you have three prompts you'd like applied to a piece of text.
+
+However, you haven't provided the text itself. To execute your requests:
+
+1.  **Prompt 1: Extract all named entities.**
+    *   I need the content from which to identify and list specific names of people, organizations, locations, dates, products, events, etc.
+
+2.  **Prompt 2: Identify key actions.**
+    *   I need the content to pinpoint the main verbs and the significant events or processes they describe.
+
+3.  **Prompt 3: Combine findings into a concise summary.**
+    *   This step relies entirely on the extracted entities and actions from the previous two steps.
+
+Please provide the text you'd like me to analyze, and I'll be happy to apply these prompts!"
+Meta-Prompting,Generate a prompt that would help someone summarize a legal document without losing critical clauses or legal terminology.,"Here's a prompt designed to help someone summarize a legal document effectively, ensuring critical clauses and legal terminology are retained:
+
+---
+
+**Prompt: Legal Document Summarization Assistant**
+
+**Objective:** Generate a concise, accurate, and comprehensive summary of the provided legal document. Your summary must preserve all critical clauses and essential legal terminology, explaining complex terms only when explicitly requested or necessary for the intended audience.
+
+**Instructions:**
+
+1.  **Identify the Core Information:**
+    *   **Document Type:** (e.g., Contract, Will, Judgment, Pleadings, Statute, Memorandum of Understanding)
+    *   **Parties Involved:** Clearly list all primary parties and their roles.
+    *   **Effective Date:** When did the document become, or is intended to become, legally binding or effective?
+    *   **Purpose/Main Subject Matter:** What is the primary goal or subject of this document? What legal relationship or situation does it address?
+
+2.  **Extract Critical Clauses – DO NOT Paraphrase Away Meaning:**
+    *   **Obligations & Covenants:** What are the key duties, responsibilities, or promises each party is bound by? (e.g., payment terms, delivery schedules, service requirements, confidentiality obligations, non-compete clauses).
+    *   **Rights & Entitlements:** What specific rights, powers, or benefits does each party hold? (e.g., rights to inspect, intellectual property rights, rights of termination).
+    *   **Conditions Precedent/Subsequent:** Are there any specific conditions that must be met *before* obligations arise (precedent) or *after* an event occurs (subsequent)?
+    *   **Representations & Warranties:** What factual assurances or guarantees are made by the parties?
+    *   **Indemnification/Limitation of Liability:** Are there clauses defining who bears risk, who must compensate whom for losses, or limits on financial responsibility?
+    *   **Defaults & Remedies:** What constitutes a breach or default, and what are the specific legal or contractual remedies available to the non-breaching party? (e.g., damages, specific performance, termination rights, cure periods).
+    *   **Termination:** Under what conditions can the document be terminated by one or all parties? (e.g., for cause, convenience, expiration of term).
+    *   **Governing Law & Jurisdiction/Dispute Resolution:** Which laws govern the document, and where (or how) will disputes be resolved (e.g., arbitration, litigation in a specific court)?
+    *   **Key Definitions:** Include any definitions that are crucial to understanding the document's unique terms.
+
+3.  **Handle Legal Terminology (Crucial!):**
+    *   **Retain Original Terms:** Whenever you extract a critical clause, **use the precise legal terminology** found in the original document. Do not substitute legal terms with common language unless absolutely necessary for the target audience.
+    *   **Concise Explanation (If Required):** If the summary is for a non-legal audience, *after* retaining the legal term, provide a **brief, parenthetical, layperson's explanation** of the term's meaning. (e.g., ""The party must effectuate the 'cure' (remedy the breach) within 30 days."")
+    *   **Avoid Diluting Nuance:** Ensure your summary does not inadvertently alter the legal meaning or intent of any clause by simplifying language too much.
+
+4.  **Formatting & Structure:**
+    *   Present the summary in a clear, logical, and easy-to-read format (e.g., using bullet points or numbered lists for the extracted clauses).
+    *   Use headings for different sections (e.g., ""Parties,"" ""Key Obligations,"" ""Termination"").
+    *   Maintain a neutral, objective tone.
+
+5.  **Audience & Granularity:**
+    *   **Specify Audience:** Before generating, please state: *Who is the intended audience for this summary?* (e.g., A client with no legal background, a business executive, a fellow legal professional, an internal team member).
+    *   **Tailor Explanations:** Adjust the level of detail in explanations of legal terms based on the specified audience. For legal professionals, minimal or no explanation is needed. For laypersons, concise explanations are helpful.
+
+**Example Input:**
+""Please summarize the attached Asset Purchase Agreement for a business owner who is not a lawyer. Focus on the core terms regarding assets, purchase price, closing conditions, and post-closing obligations. Ensure all key legal terms like 'indemnification,' 'representations and warranties,' and 'escrow' are included and briefly explained.""
+
+---"

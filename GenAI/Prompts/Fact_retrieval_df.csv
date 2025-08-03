@@ -1,0 +1,162 @@
+Prompting Technique,Example Prompt,gemini Response
+Zero-Shot Prompting,What year did the Berlin Wall fall?,The Berlin Wall fell in **1989**.
+Few-Shot Prompting,Example 1: Q: What is the capital of Italy? A: Rome\nExample 2: Q: Who developed the theory of relativity? A: Einstein\nQ: What’s the tallest mountain in Africa?,A: Mount Kilimanjaro
+Chain-of-Thought Prompting,Let’s think step by step. Africa has many mountains. Kilimanjaro is located in Tanzania and is the highest in the continent.,"That's absolutely right! You've got it perfectly.
+
+Mount Kilimanjaro, located in Tanzania, is indeed the highest peak in Africa and a very iconic stratovolcano. It's a popular destination for climbers and a truly majestic sight.
+
+And you're correct, Africa boasts many other impressive mountain ranges and peaks, from the Atlas Mountains in the north to the Rwenzori Mountains (Mountains of the Moon) in East Africa, and the Drakensberg in the south, just to name a few."
+Iterative Refinement Prompting,Initial answer: Mount Kenya.\nRefinement: That’s incorrect. Check verified sources. Correct answer: Mount Kilimanjaro.,"You are absolutely correct! That's an excellent refinement and a great example of checking your sources.
+
+**Mount Kilimanjaro** is indeed the highest mountain in Africa, located in Tanzania. It's also the highest freestanding mountain in the world.
+
+**Mount Kenya** is the second-highest peak in Africa, located in Kenya. It's a common initial guess because it's also a very prominent and significant mountain on the continent.
+
+Good job on verifying and arriving at the correct answer!"
+Tree-of-Thought Prompting,Generate three possible answers for “What’s the most spoken language in the world?” and evaluate based on current data sources.,"The question ""What's the most spoken language in the world?"" can have different answers depending on how ""spoken"" is defined. Here are three possible answers, evaluated based on current data:
+
+---
+
+### Possible Answer 1: Mandarin Chinese
+
+*   **Claim:** Mandarin Chinese is the most spoken language in the world.
+*   **Evaluation:** This answer is **highly accurate** if the question refers to the number of **native speakers**.
+    *   **Current Data:** According to sources like Ethnologue and Statista (which aggregate data from various language surveys), Mandarin Chinese has approximately **939 - 940 million native speakers**. This makes it the language with the largest number of people who speak it as their first language.
+    *   **Why it's strong:** Its massive native speaker base, primarily in mainland China, makes it an undeniable frontrunner by this metric.
+    *   **Caveat:** While it has a very large number of native speakers, its total number of speakers (including second-language learners) is significantly lower than English. It is also not as globally widespread as a lingua franca.
+
+---
+
+### Possible Answer 2: English
+
+*   **Claim:** English is the most spoken language in the world.
+*   **Evaluation:** This answer is **highly accurate** if the question refers to the **total number of speakers** (native + non-native speakers, including those who speak it as a second or third language).
+    *   **Current Data:** English has approximately **1.5 billion total speakers**. While its number of native speakers is around 370-380 million, it has an enormous number of second-language speakers (over 1 billion) due to its status as the global lingua franca in business, science, technology, diplomacy, and aviation.
+    *   **Why it's strong:** Its unparalleled global reach and utility in international communication make it the ""most spoken"" in terms of overall impact and daily usage by the largest number of people worldwide.
+    *   **Caveat:** When strictly considering *native* speakers, English ranks behind Mandarin Chinese and sometimes Spanish.
+
+---
+
+### Possible Answer 3: Spanish
+
+*   **Claim:** Spanish is the most spoken language in the world.
+*   **Evaluation:** This answer is **less accurate as *the* most spoken language**, but it is a **strong contender for a top position**, often ranking second or third depending on the metric.
+    *   **Current Data:** Spanish has approximately **480 - 500 million native speakers**, making it typically the second-largest language by native speakers after Mandarin Chinese. Its total number of speakers (including non-natives) is around **590 million**.
+    *   **Why it's a plausible answer (though not #1):** Spanish is a major global language, spoken across 20 countries as an official language, and has a very substantial native speaker base. It's often highlighted in discussions about the world's most influential languages.
+    *   **Caveat:** While impressive, its native speaker count is surpassed by Mandarin Chinese, and its total speaker count is significantly lower than English. It doesn't quite reach the ""most"" category when compared to the top two by their respective strong metrics.
+
+---
+
+**Conclusion:**
+
+The ""most spoken language"" depends entirely on the definition:
+
+*   **Mandarin Chinese** is the most spoken if you mean **native speakers**.
+*   **English** is the most spoken if you mean **total speakers** (native + non-native).
+*   **Spanish** is a very strong third or fourth globally, demonstrating a significant presence but not typically the *absolute most* by either common metric."
+Role-Playing Prompting,You are a historian specializing in 20th-century Europe. What led to the fall of the Berlin Wall?,"Ah, the fall of the Berlin Wall – a moment that, for many of us specializing in this period, stands as the symbolic *denouement* of the Cold War. It wasn't a singular event, but rather the dramatic culmination of deep-seated systemic failures, popular dissent, and a profound shift in Soviet policy. Let me break down the key contributing factors:
+
+**I. The Systemic Weakness and Erosion of Legitimacy in the German Democratic Republic (GDR):**
+
+1.  **Economic Stagnation and Failure:** The GDR's centrally planned economy was increasingly unable to provide for its citizens. Despite propaganda touting socialist achievements, shortages of basic consumer goods, poor quality products, and a crumbling infrastructure were stark realities. Citizens could see, via West German television and radio (which most received), the stark contrast with the prosperity and freedom of West Germany. This economic disparity fueled deep resentment and a feeling of being left behind.
+2.  **Repression and Lack of Freedom:** The ruling Socialist Unity Party (SED), propped up by the omnipresent Stasi (State Security Service), maintained tight control over every aspect of life. Freedom of speech, movement, and assembly were severely restricted. This heavy-handed approach created a deep sense of frustration and suffocation among the populace, particularly the younger generation.
+3.  **Aging and Inflexible Leadership:** The SED leadership, particularly Erich Honecker, was deeply resistant to any form of reform. They clung rigidly to orthodox Marxist-Leninist ideology, refusing to acknowledge the deep problems facing the country or the changing political winds emanating from Moscow. This obstinacy alienated even some within the party ranks.
+
+**II. The Gorbachev Factor and Shifting Soviet Policy:**
+
+1.  **Perestroika (Restructuring) and Glasnost (Openness):** Mikhail Gorbachev, who came to power in the Soviet Union in 1985, initiated these radical reform policies. While primarily aimed at revitalizing the Soviet economy and society, they had profound unintended consequences for the Eastern Bloc. Glasnost, in particular, encouraged more open discussion and criticism, while Perestroika signaled a move away from the rigid command economy.
+2.  **The ""Sinatra Doctrine"" (Abandonment of the Brezhnev Doctrine):** Crucially, Gorbachev made it clear that the Soviet Union would no longer intervene militarily to prop up communist regimes in Eastern Europe. This was famously dubbed the ""Sinatra Doctrine"" by his foreign ministry spokesman Gennadi Gerasimov, meaning countries could now do things ""their way."" This removed the ultimate deterrent against reform or revolution and fundamentally altered the power dynamic within the Soviet bloc. The SED leadership, reliant on Soviet backing, found itself suddenly isolated and vulnerable.
+
+**III. The Domino Effect in Eastern Europe:**
+
+1.  **Poland's Path to Democracy:** The rise of the Solidarity trade union, the Roundtable Talks in early 1989, and semi-free elections in June that saw Solidarity candidates sweep to victory, demonstrated that fundamental change was possible even within a communist state.
+2.  **Hungary's Opening:** Hungary played a pivotal role. In May 1989, it began dismantling its section of the ""Iron Curtain"" with Austria, creating a physical breach in the border. Then, in September, Hungary formally opened its border to Austria, allowing thousands of East German ""holidaymakers"" who had gathered there (many effectively refugees) to cross into the West. This was a massive shock to the GDR and a public humiliation, as its citizens literally voted with their feet.
+3.  **Czechoslovakia and the Refugee Crisis:** East German citizens also began flooding into West German embassies in Prague and Warsaw, seeking asylum. The images of these desperate crowds, combined with the Hungarian exodus, created an unprecedented refugee crisis for the GDR, further undermining its authority and legitimacy.
+
+**IV. The Mass Exodus and Growing Internal Protest:**
+
+1.  **The ""Flight Republic"":** The sheer number of East Germans leaving, either through Hungary and Czechoslovakia or via the embassies, was staggering. It represented a severe brain drain and a public indictment of the SED regime.
+2.  **The ""Peaceful Revolution"" (Monday Demonstrations):** Inspired by the changes in other Eastern Bloc countries and the growing desperation, peaceful protests began to gather momentum within the GDR itself. The largest and most famous were the ""Monday Demonstrations"" in Leipzig, which began in September 1989. What started with a few hundred people after church services quickly grew to tens of thousands, and then hundreds of thousands across the country, chanting ""Wir sind das Volk!"" (We are the people!) and ""No New Wall!"" The SED leadership, fearing a Tiananmen Square-like crackdown without Soviet backing, hesitated to use force against such massive numbers.
+3.  **Leadership Vacuum and Confusion:** The old guard, including Honecker, was forced out in mid-October, replaced by Egon Krenz. However, Krenz's attempts at limited reform were seen as too little, too late, and he lacked credibility with both the protestors and within his own party.
+
+**V. The Immediate Catalyst: The Press Conference Blunder (November 9, 1989):**
+
+1.  **The New Travel Regulations:** Under immense pressure from the protests and the exodus, the SED government drafted new, less restrictive travel regulations. These were intended to create a more orderly system for emigration, *not* to open the borders immediately.
+2.  **Günter Schabowski's Announcement:** On the evening of November 9th, SED Politburo member Günter Schabowski, who had not been fully briefed and was confused about the precise details and effective date, announced the new regulations at a live televised press conference. When asked when they would take effect, he famously fumbled and said, ""Immediately, without delay.""
+3.  **The Rush to the Wall:** The news spread like wildfire through West German media. Thousands of East Berliners, believing the borders were open, rushed to the checkpoints along the Wall. The bewildered border guards, without clear orders and faced with an overwhelming, peaceful crowd, eventually gave way and opened the gates.
+
+In conclusion, the fall of the Berlin Wall was not an isolated event but the culmination of a decade of growing internal dissent and economic decline within the GDR, profoundly influenced by Gorbachev's transformative reforms and the subsequent unraveling of Soviet control over Eastern Europe. The sheer scale of the mass exodus and the unprecedented ""Peaceful Revolution"" from within sealed the GDR's fate. The final act, the opening of the Wall on November 9th, was a moment of accidental triumph, a spontaneous eruption of popular will that no one, least of all the SED leadership, had fully anticipated. It truly marked the irreversible end of an era."
+Self-Critique Prompting,"Answer: “The Great Wall is in Beijing.” Review: Accurate location, but vague context. Improve with date and reason for construction.","You're right, ""The Great Wall is in Beijing"" is partially accurate but lacks the full scope!
+
+Here are improved answers, incorporating date and reason for construction:
+
+---
+
+**Improved Answers:**
+
+1.  **Concise but Comprehensive:**
+    ""While iconic sections of the Great Wall are accessible near Beijing, the wall stretches thousands of miles across northern China. Much of the structure we see today was built during the Ming Dynasty (1368–1644 AD) primarily to defend the Chinese empire against northern nomadic invasions.""
+
+2.  **More Detailed:**
+    ""The Great Wall is a vast series of fortifications spanning across northern China, with famous accessible sections located in and around Beijing. Its construction began as early as the 7th century BC, with significant expansions and fortifications, particularly during the Qin Dynasty (221–206 BC) and most extensively during the Ming Dynasty (1368–1644 AD). The primary reason for its construction was to protect the Chinese empires from raids and invasions by nomadic groups from the Eurasian Steppe.""
+
+3.  **Focus on Historical Context:**
+    ""The Great Wall is located across the historical northern borders of China, not solely in Beijing, though many popular visitor sites are there. It was built over many centuries, with major construction phases during the Qin Dynasty (starting around 220 BCE) and later the Ming Dynasty (1368-1644 CE). The wall's purpose was to serve as a defensive barrier, protecting the agricultural lands of China from the nomadic tribes and invading forces from the north."""
+Retrieval-Augmented Prompting,Use a verified dataset or online encyclopedia to retrieve the exact number of countries in the European Union as of 2023.,"The European Union (EU) currently has **27** member countries as of 2023.
+
+This information is verifiable through:
+*   **The official website of the European Union:** [europa.eu/european-union/about-eu/countries](https://europa.eu/european-union/about-eu/countries)
+*   **Wikipedia (Member States of the European Union):** Which cites official EU sources for its information."
+Prompt Chaining,Prompt 1: Ask “What was the cause of the 2008 financial crisis?”\nPrompt 2: Extract key facts.\nPrompt 3: Summarize them in bullet points.,"Here are the responses to your prompts:
+
+***
+
+**Prompt 1: Ask “What was the cause of the 2008 financial crisis?”**
+
+The 2008 financial crisis was a multifaceted event primarily rooted in the U.S. housing market and a highly leveraged, under-regulated financial system. Its main causes included:
+
+1.  **Subprime Mortgage Lending:** A significant increase in loans issued to borrowers with poor credit histories, low incomes, or high debt burdens. These mortgages often had adjustable interest rates that became unaffordable after an initial low ""teaser"" period.
+2.  **Housing Bubble:** Fueled by easy credit and speculative buying, U.S. home prices rose unsustainably for years. Many people bought homes they couldn't truly afford, assuming prices would continue to rise indefinitely.
+3.  **Securitization and Financial Engineering:** These risky subprime mortgages were bundled together and repackaged into complex financial instruments known as Mortgage-Backed Securities (MBS) and Collateralized Debt Obligations (CDOs). These instruments were then sold to investors worldwide, often receiving high credit ratings from agencies that failed to accurately assess their risk.
+4.  **Lack of Regulation:** Insufficient oversight of the rapidly expanding and increasingly complex mortgage and derivatives markets allowed excessive risk-taking, predatory lending, and a build-up of systemic risk without adequate safeguards.
+5.  **Excessive Leverage and Risk-Taking by Financial Institutions:** Investment banks and other financial firms took on enormous amounts of debt (leverage) to invest heavily in these risky MBS and CDOs, betting on continued housing price increases and steady returns. When prices fell, their highly leveraged positions led to massive losses.
+6.  **Interconnectedness of the Financial System:** The global financial system was highly interconnected. When the housing bubble burst and mortgage defaults surged, the value of MBS and CDOs plummeted. This led to massive losses for institutions holding these assets, triggering a crisis of confidence, a freeze in interbank lending (liquidity crisis), and a broader credit crunch.
+7.  **Foreclosures and Economic Downturn:** As adjustable-rate mortgages reset to higher payments and the economy weakened, foreclosures skyrocketed, further depressing housing prices and exacerbating losses for lenders and investors.
+8.  **Collapse of Major Institutions:** The crisis was marked by the failure or near-failure of prominent financial institutions like Bear Stearns, Lehman Brothers (which declared bankruptcy), AIG (which received a massive government bailout), and the conservatorship of Fannie Mae and Freddie Mac, which sent shockwaves through the global economy.
+
+***
+
+**Prompt 2: Extract key facts.**
+
+*   **Subprime mortgage lending:** Loans given to borrowers with poor credit.
+*   **Housing bubble:** Unsustainable increase in U.S. home prices.
+*   **Securitization:** Risky mortgages bundled into complex financial products (MBS, CDOs) sold globally.
+*   **Misleading credit ratings:** Rating agencies assigned high ratings to risky MBS/CDOs.
+*   **Lack of regulation:** Insufficient oversight of mortgage and derivatives markets.
+*   **Excessive leverage:** Financial institutions took on too much debt to invest in risky assets.
+*   **Interconnected financial system:** Global nature of investments spread risk quickly.
+*   **Housing bubble burst:** Led to widespread mortgage defaults.
+*   **Plummeting asset values:** Value of MBS/CDOs collapsed.
+*   **Liquidity crisis:** Banks stopped lending to each other.
+*   **Failure/bailout of key institutions:** Examples include Lehman Brothers, AIG.
+*   **Resulted in a global financial crisis and recession.**
+
+***
+
+**Prompt 3: Summarize them in bullet points.**
+
+*   **Widespread subprime mortgage lending** to borrowers with poor credit.
+*   Formation and burst of a **housing bubble** driven by easy credit and speculation.
+*   **Securitization of risky mortgages** into complex, often mis-rated financial products (MBS, CDOs) sold globally.
+*   **Insufficient regulation** allowed excessive risk-taking and predatory lending.
+*   **Excessive leverage** and poor risk management by financial institutions.
+*   **Interconnectedness** of the global financial system rapidly spread losses.
+*   The bursting bubble led to **mass defaults, plummeting asset values, and a severe liquidity crisis.**
+*   Resulted in the **collapse or bailout of major financial institutions** (e.g., Lehman Brothers, AIG) and a global recession."
+Meta-Prompting,Write a prompt that helps a student retrieve facts about World War II causes in under 100 words.,"Here's a prompt designed to help a student retrieve concise facts about World War II causes:
+
+---
+
+**Prompt:**
+
+""I need quick, factual bullet points on the main causes of World War II. List 3-5 key contributing factors. Each point should be a brief statement. Ensure the total explanation is under 100 words."""

@@ -1,0 +1,1090 @@
+Prompting Technique,Example Prompt,gemini Response
+Zero-Shot Prompting,Write a Python function to check if a number is prime.,"A prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself.
+
+Here's a Python function to check if a number is prime, with common optimizations:
+
+```python
+import math
+
+def is_prime(n):
+    """"""
+    Checks if a given number is a prime number.
+
+    A prime number is a natural number greater than 1 that has no positive
+    divisors other than 1 and itself.
+
+    Args:
+        n (int): The integer to check for primality.
+
+    Returns:
+        bool: True if n is prime, False otherwise.
+    """"""
+    # 1. Handle edge cases: numbers less than or equal to 1 are not prime.
+    if n <= 1:
+        return False
+    
+    # 2. Handle the smallest prime number: 2 is prime.
+    if n == 2:
+        return True
+    
+    # 3. Handle even numbers greater than 2: all are not prime.
+    if n % 2 == 0:
+        return False
+    
+    # 4. Check for divisibility by odd numbers starting from 3 up to sqrt(n).
+    #    We only need to check up to the square root of n because if n has
+    #    a divisor greater than its square root, it must also have a divisor
+    #    smaller than its square root.
+    #    We increment by 2 to only check odd divisors.
+    #    The `+1` in range ensures that `int(math.sqrt(n))` itself is included
+    #    in the check if it's an integer.
+    limit = int(math.sqrt(n)) + 1
+    for i in range(3, limit, 2):
+        if n % i == 0:
+            return False  # Found a divisor, so it's not prime
+            
+    # If no divisors were found, the number is prime
+    return True
+
+# --- Examples ---
+print(f""Is 1 prime? {is_prime(1)}"")    # Expected: False
+print(f""Is 2 prime? {is_prime(2)}"")    # Expected: True
+print(f""Is 3 prime? {is_prime(3)}"")    # Expected: True
+print(f""Is 4 prime? {is_prime(4)}"")    # Expected: False
+print(f""Is 5 prime? {is_prime(5)}"")    # Expected: True
+print(f""Is 7 prime? {is_prime(7)}"")    # Expected: True
+print(f""Is 9 prime? {is_prime(9)}"")    # Expected: False (3*3)
+print(f""Is 10 prime? {is_prime(10)}"")  # Expected: False (2*5)
+print(f""Is 11 prime? {is_prime(11)}"")  # Expected: True
+print(f""Is 29 prime? {is_prime(29)}"")  # Expected: True
+print(f""Is 87 prime? {is_prime(87)}"")  # Expected: False (3*29)
+print(f""Is 97 prime? {is_prime(97)}"")  # Expected: True
+print(f""Is 101 prime? {is_prime(101)}"") # Expected: True
+print(f""Is -5 prime? {is_prime(-5)}"")  # Expected: False
+```
+
+**Explanation of Optimizations:**
+
+1.  **Numbers <= 1:** By definition, prime numbers must be natural numbers greater than 1. This immediately filters out 0, 1, and all negative numbers.
+2.  **Number 2:** `2` is the only even prime number. It's a special case that can be handled quickly.
+3.  **Even Numbers > 2:** Any even number greater than 2 is divisible by 2, and therefore, cannot be prime. This allows us to skip checking any further for half of all integers.
+4.  **Checking up to `sqrt(n)`:** If a number `n` has a divisor `d`, then `n = d * k` for some integer `k`. If `d > sqrt(n)`, then `k` must be less than `sqrt(n)`. This means that if `n` has any divisors, it *must* have at least one divisor less than or equal to its square root. So, we only need to check for divisors up to `sqrt(n)`. This significantly reduces the number of checks for large `n`.
+5.  **Checking Only Odd Divisors:** Since we've already handled the case of `n` being divisible by 2, we only need to check for odd divisors (`3, 5, 7, ...`). This is why the `range()` step is `2`."
+Few-Shot Prompting,"Example 1: def add(a, b): return a + b\nExample 2: def subtract(a, b): return a - b\nNow, write a function to multiply two numbers.","```python
+def multiply(a, b):
+    return a * b
+```"
+Chain-of-Thought Prompting,"First, determine if the number is less than 2. Then, check divisibility from 2 to the square root of n. Now write a function using this logic.","Okay, let's break down the logic and then implement it in a Python function.
+
+**Logic Breakdown:**
+
+1.  **""First, determine if the number is less than 2.""**
+    *   Prime numbers are, by definition, natural numbers greater than 1.
+    *   So, any number `n` that is `0`, `1`, or negative (`n <= 1`) cannot be prime. We immediately return `False` for these.
+
+2.  **""Then, check divisibility from 2 to the square root of n.""**
+    *   If a number `n` has a divisor `d` greater than its square root (`d > sqrt(n)`), then it must also have a corresponding divisor `n/d` which is less than its square root (`n/d < sqrt(n)`).
+    *   Therefore, to find if a number is composite (not prime), we only need to check for divisors up to its square root. If we don't find any divisors in this range, the number must be prime.
+    *   We start checking from `2` because `1` is a divisor of all numbers and doesn't help determine primality, and we've already handled numbers `0` and `1`.
+
+**Python Implementation:**
+
+```python
+import math
+
+def is_prime(n):
+    """"""
+    Determines if a given number is prime using the specified logic.
+
+    Args:
+        n (int): The integer to check for primality.
+
+    Returns:
+        bool: True if the number is prime, False otherwise.
+    """"""
+    # Step 1: Determine if the number is less than 2.
+    # Numbers less than or equal to 1 are not prime by definition.
+    if n <= 1:
+        return False
+
+    # Step 2: Check divisibility from 2 to the square root of n.
+    # We only need to check up to the square root of n.
+    # The loop range should be from 2 up to and including int(sqrt(n)).
+    # We add 1 to int(math.sqrt(n)) because range() is exclusive of the end value.
+    for i in range(2, int(math.sqrt(n)) + 1):
+        # If n is divisible by any number i in this range, it's not prime.
+        if n % i == 0:
+            return False
+
+    # If the loop completes without finding any divisors, the number is prime.
+    return True
+
+# --- Test Cases ---
+print(f""Is 0 prime? {is_prime(0)}"")     # Expected: False
+print(f""Is 1 prime? {is_prime(1)}"")     # Expected: False
+print(f""Is 2 prime? {is_prime(2)}"")     # Expected: True (first prime number)
+print(f""Is 3 prime? {is_prime(3)}"")     # Expected: True
+print(f""Is 4 prime? {is_prime(4)}"")     # Expected: False (4 = 2 * 2)
+print(f""Is 5 prime? {is_prime(5)}"")     # Expected: True
+print(f""Is 9 prime? {is_prime(9)}"")     # Expected: False (9 = 3 * 3)
+print(f""Is 10 prime? {is_prime(10)}"")   # Expected: False (10 = 2 * 5)
+print(f""Is 17 prime? {is_prime(17)}"")   # Expected: True
+print(f""Is 25 prime? {is_prime(25)}"")   # Expected: False (25 = 5 * 5)
+print(f""Is 29 prime? {is_prime(29)}"")   # Expected: True
+print(f""Is 100 prime? {is_prime(100)}"") # Expected: False
+```
+
+**Explanation of Code:**
+
+1.  **`import math`**: We import the `math` module to use `math.sqrt()` for calculating the square root.
+2.  **`def is_prime(n):`**: Defines a function named `is_prime` that takes one argument `n`.
+3.  **`if n <= 1:`**: This handles the first part of your logic. If `n` is 1 or less, it's immediately determined not to be prime.
+4.  **`for i in range(2, int(math.sqrt(n)) + 1):`**: This is the core loop for the second part.
+    *   `math.sqrt(n)`: Calculates the square root of `n`.
+    *   `int(...)`: Converts the square root to an integer, effectively truncating any decimal part.
+    *   `+ 1`: We add 1 because `range()` in Python generates numbers *up to, but not including*, the second argument. If `n` is a perfect square (like 4 or 9), we need to include its square root as a potential divisor. For example, for `n=4`, `sqrt(4)=2`. We need to check divisibility by `2`, so `range(2, int(2)+1)` becomes `range(2, 3)`, which includes `2`.
+    *   The loop iterates through each integer `i` in this range.
+5.  **`if n % i == 0:`**: Inside the loop, this checks if `n` is perfectly divisible by `i` (i.e., the remainder of the division is 0).
+6.  **`return False`**: If a divisor `i` is found, `n` is not prime, so we immediately stop and return `False`.
+7.  **`return True`**: If the loop completes without finding any divisors (meaning `n` was not divisible by any number from 2 up to its square root), then `n` must be a prime number, so we return `True`."
+Iterative Refinement Prompting,Initial version: def prime(n): return n > 1\nRevise this to actually check if the number is prime and handle edge cases.,"You're absolutely right! The original function was essentially useless for checking primality.
+
+Here's a revised version that correctly checks for prime numbers and handles edge cases, along with explanations:
+
+```python
+import math
+
+def is_prime(n):
+    """"""
+    Checks if a given number 'n' is a prime number.
+
+    A prime number is a natural number greater than 1 that has no positive
+    divisors other than 1 and itself.
+
+    Args:
+        n (int): The number to check for primality.
+
+    Returns:
+        bool: True if 'n' is prime, False otherwise.
+    """"""
+    # 1. Handle edge cases based on the definition of a prime number
+    # Numbers less than or equal to 1 are not prime
+    if n <= 1:
+        return False
+    # 2 is the only even prime number
+    if n == 2:
+        return True
+    # All other even numbers (greater than 2) are not prime
+    if n % 2 == 0:
+        return False
+
+    # 2. Optimized checking for odd divisors
+    # We only need to check for divisors up to the square root of n.
+    # If n has a divisor greater than its square root, it must also have
+    # a divisor smaller than its square root.
+    # We can also skip all even numbers in our checks since we've already
+    # handled n=2 and all other even numbers.
+    
+    # Calculate the integer part of the square root
+    limit = int(math.sqrt(n)) 
+    
+    # Iterate through odd numbers starting from 3 up to the limit
+    for i in range(3, limit + 1, 2):
+        if n % i == 0:
+            # If n is divisible by i, it's not prime
+            return False
+            
+    # If no divisors were found, the number is prime
+    return True
+
+# --- Test Cases ---
+print(f""is_prime(0): {is_prime(0)}"")     # Expected: False
+print(f""is_prime(1): {is_prime(1)}"")     # Expected: False
+print(f""is_prime(2): {is_prime(2)}"")     # Expected: True
+print(f""is_prime(3): {is_prime(3)}"")     # Expected: True
+print(f""is_prime(4): {is_prime(4)}"")     # Expected: False (divisible by 2)
+print(f""is_prime(5): {is_prime(5)}"")     # Expected: True
+print(f""is_prime(6): {is_prime(6)}"")     # Expected: False (divisible by 2, 3)
+print(f""is_prime(7): {is_prime(7)}"")     # Expected: True
+print(f""is_prime(9): {is_prime(9)}"")     # Expected: False (divisible by 3)
+print(f""is_prime(11): {is_prime(11)}"")   # Expected: True
+print(f""is_prime(13): {is_prime(13)}"")   # Expected: True
+print(f""is_prime(17): {is_prime(17)}"")   # Expected: True
+print(f""is_prime(25): {is_prime(25)}"")   # Expected: False (divisible by 5)
+print(f""is_prime(29): {is_prime(29)}"")   # Expected: True
+print(f""is_prime(97): {is_prime(97)}"")   # Expected: True
+print(f""is_prime(100): {is_prime(100)}"") # Expected: False
+print(f""is_prime(101): {is_prime(101)}"") # Expected: True
+print(f""is_prime(103): {is_prime(103)}"") # Expected: True
+```
+
+### Explanation of Changes and Optimizations:
+
+1.  **Function Name (`is_prime`):** Changed from `prime` to `is_prime` for better clarity, as it returns a boolean indicating a property.
+
+2.  **`import math`:** Needed for `math.sqrt()` to calculate the square root efficiently.
+
+3.  **Docstring:** Added a clear explanation of what the function does, its arguments, and what it returns. This is good practice for code readability and maintenance.
+
+4.  **Edge Cases (Definition of Prime):**
+    *   `if n <= 1: return False`: Prime numbers are defined as natural numbers *greater than 1*. So, 0, 1, and negative numbers are not prime.
+    *   `if n == 2: return True`: 2 is the smallest and only even prime number. It's a special case.
+    *   `if n % 2 == 0: return False`: After handling 2, any *other* even number must be divisible by 2, and therefore, not prime. This immediately eliminates half of all possible numbers.
+
+5.  **Optimization with Square Root (`limit = int(math.sqrt(n))`):**
+    *   A key mathematical property for primality testing: If a number `n` has a divisor greater than `sqrt(n)`, it must also have a divisor smaller than `sqrt(n)`.
+    *   Therefore, we only need to check for divisors up to `int(math.sqrt(n))`. This significantly reduces the number of iterations for larger `n`. For example, for `n=100`, we only check up to 10 instead of 99.
+
+6.  **Optimized Loop (`for i in range(3, limit + 1, 2)`):**
+    *   `range(3, limit + 1, 2)`:
+        *   We start checking from `3` because we've already handled `2`.
+        *   We go up to `limit + 1` because `range()` excludes the end value, and we need to include the `limit` if it's an integer divisor (e.g., `sqrt(9) = 3`, so we need to check 3).
+        *   The `step` of `2` means we only check *odd* numbers (3, 5, 7, ...). This is efficient because we already know even numbers won't be prime divisors (we handled `n % 2 == 0` earlier).
+
+7.  **Return `True` at the End:** If the loop completes without finding any divisors, it means the number `n` has no divisors other than 1 and itself, making it prime."
+Tree-of-Thought Prompting,"Explore different methods for checking primality: 1) basic loop, 2) Sieve of Eratosthenes, 3) Miller-Rabin test. Evaluate which is best for n < 100.","Checking primality is a fundamental problem in number theory and computer science. The best method depends heavily on the scale of the number `n` and whether you need to check a single number or many numbers within a range.
+
+Let's explore the three methods for `n < 100`.
+
+---
+
+### 1. Basic Loop (Trial Division)
+
+**Concept:** This is the most straightforward method. To check if a number `n` is prime, you divide it by all integers from 2 up to its square root. If any of these divisions result in a remainder of 0, then `n` is composite. Otherwise, it's prime.
+
+**Optimizations:**
+*   Handle `n = 0, 1` (not prime) and `n = 2, 3` (prime) as special cases.
+*   Check divisibility by 2 separately.
+*   After checking 2, you only need to check odd divisors from 3 up to `sqrt(n)`, incrementing by 2.
+*   Further optimization: Check divisibility by 2 and 3 separately. Then, check numbers of the form `6k ± 1` (i.e., `5, 7, 11, 13, ...`) up to `sqrt(n)`. This is because all primes greater than 3 can be expressed in this form.
+
+**Algorithm:**
+
+1.  If `n <= 1`, return `false`.
+2.  If `n <= 3`, return `true` (2 and 3 are prime).
+3.  If `n` is divisible by 2 or 3, return `false`.
+4.  Start a loop from `i = 5`. While `i * i <= n`:
+    *   If `n` is divisible by `i` or `i + 2`, return `false`.
+    *   Increment `i` by 6.
+5.  If the loop finishes, return `true`.
+
+**Example for `n = 97`:**
+*   `97 > 3` and not divisible by 2 or 3.
+*   `sqrt(97)` is approximately 9.85. So, we check up to 9.
+*   `i = 5`: `97 % 5 != 0`, `97 % 7 != 0`.
+*   `i = 11`: `11 * 11 = 121 > 97`, so the loop terminates.
+*   Return `true`. `97` is prime.
+
+**Code Example (Python - with common optimizations):**
+
+```python
+import math
+
+def is_prime_trial_division(n):
+    if n <= 1:
+        return False
+    if n <= 3: # 2 and 3 are prime
+        return True
+    if n % 2 == 0 or n % 3 == 0:
+        return False
+    i = 5
+    # Only need to check up to sqrt(n)
+    # Check numbers of the form 6k +/- 1
+    while i * i <= n:
+        if n % i == 0 or n % (i + 2) == 0:
+            return False
+        i += 6
+    return True
+
+# Test for n < 100
+# print([n for n in range(100) if is_prime_trial_division(n)])
+```
+
+**Pros:**
+*   **Simple to understand and implement.**
+*   **Deterministic:** Always gives the correct answer.
+*   **Memory Efficient:** Requires very little memory.
+
+**Cons:**
+*   **Inefficient for very large numbers:** The time complexity is `O(sqrt(n))`, which becomes too slow for `n` with hundreds of digits.
+
+---
+
+### 2. Sieve of Eratosthenes
+
+**Concept:** The Sieve of Eratosthenes is an efficient algorithm for *finding all prime numbers up to a specified integer `N`*. It's not designed for checking a single number in isolation, but rather for generating a list of primes that can then be used for quick lookups.
+
+**Algorithm:**
+
+1.  Create a boolean array `isPrime[0...N]`, initialized to `True` for all entries.
+2.  Mark `isPrime[0]` and `isPrime[1]` as `False` (0 and 1 are not prime).
+3.  Iterate `p` from 2 up to `sqrt(N)`:
+    *   If `isPrime[p]` is `True` (meaning `p` is prime):
+        *   Mark all multiples of `p` (starting from `p*p` to `N`, with step `p`) as `False`. This is because any multiple `k*p` less than `p*p` would have already been marked by a smaller prime factor `k`.
+4.  After the loop, all indices `i` for which `isPrime[i]` is `True` are prime numbers.
+
+**Example for `N = 20`:**
+1.  `[T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T]` (Indices 0-20)
+2.  Mark 0, 1 as False: `[F, F, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T]`
+3.  `p = 2`: `isPrime[2]` is True. Mark multiples (4, 6, 8, 10, 12, 14, 16, 18, 20) as False.
+    `[F, F, T, T, F, T, F, T, F, T, F, T, F, T, F, T, F, T, F, T, F]`
+4.  `p = 3`: `isPrime[3]` is True. Mark multiples (9, 15) as False. (6, 12, 18 already False)
+    `[F, F, T, T, F, T, F, T, F, F, F, T, F, T, F, F, F, T, F, T, F]`
+5.  `p = 4`: `isPrime[4]` is False (already marked by 2). Skip.
+6.  `p = 5`: `isPrime[5]` is True. `5*5 = 25` which is `> 20`. Loop ends.
+7.  Primes up to 20: 2, 3, 5, 7, 11, 13, 17, 19.
+
+**Code Example (Python):**
+
+```python
+def sieve_of_eratosthenes(n_limit):
+    is_prime = [True] * (n_limit + 1)
+    is_prime[0] = is_prime[1] = False # 0 and 1 are not prime
+
+    # Iterate from 2 up to sqrt(n_limit)
+    for p in range(2, int(math.sqrt(n_limit)) + 1):
+        if is_prime[p]:
+            # Mark all multiples of p (starting from p*p) as not prime
+            for multiple in range(p * p, n_limit + 1, p):
+                is_prime[multiple] = False
+    
+    # Optional: return the list of primes
+    # primes = [num for num, prime_status in enumerate(is_prime) if prime_status]
+    # return primes
+    return is_prime
+
+# Generate primes up to 100
+# primes_up_to_100 = sieve_of_eratosthenes(100)
+# To check if 97 is prime:
+# print(primes_up_to_100[97]) # True
+```
+
+**Pros:**
+*   **Extremely efficient for finding all primes within a range.** Time complexity `O(N log log N)`.
+*   **O(1) lookup:** Once the sieve is built, checking if a specific number `k` (where `k <= N`) is prime is an O(1) operation.
+
+**Cons:**
+*   **Memory Intensive:** Requires an array of size `N`, so `O(N)` memory. This can be an issue for very large `N`.
+*   **Not suitable for checking a single, very large number:** You'd have to build a huge sieve just for one check.
+
+---
+
+### 3. Miller-Rabin Primality Test
+
+**Concept:** The Miller-Rabin test is a probabilistic primality test. This means it doesn't definitively prove primality for all numbers, but it can determine if a number is *composite* with 100% certainty, or if it's *probably prime* with a very high probability. For numbers up to a certain size, it can be made deterministic by checking a specific, small set of bases.
+
+It's based on properties of strong pseudoprimes and Fermat's Little Theorem.
+Given an odd integer `n > 2` to be tested for primality:
+1.  Write `n-1` as `2^s * d`, where `d` is an odd integer.
+2.  Choose a random integer `a` such that `1 < a < n-1`.
+3.  If `a^d % n == 1`, then `n` is probably prime.
+4.  For `r` from `0` to `s-1`: if `a^(2^r * d) % n == n-1`, then `n` is probably prime.
+5.  If neither of the above conditions is met, `n` is composite.
+
+**Deterministic Miller-Rabin for Small N:**
+For `n < 100`, only one base (`a=2`) is actually sufficient to test primality deterministically. For `n < 1,373,653`, testing with bases `a=2, 3` is sufficient. For `n < 2,152,302,898,747`, bases `a=2, 3, 5, 7, 11` are sufficient. This means you don't need random bases for `n < 100`.
+
+**Algorithm (Simplified for `n < 100`, using `a=2`):**
+
+1.  Handle `n <= 2` as special cases.
+2.  Write `n-1 = 2^s * d` (find `s` and `d`).
+3.  Compute `x = pow(2, d, n)` (which is `2^d % n`).
+4.  If `x == 1` or `x == n-1`, `n` is prime.
+5.  Loop `s-1` times:
+    *   `x = pow(x, 2, n)` (which is `x^2 % n`).
+    *   If `x == n-1`, `n` is prime.
+    *   If `x == 1`, `n` is composite.
+6.  If the loop completes and `x` is not `n-1`, `n` is composite.
+
+**Code Example (Python - basic structure for Miller-Rabin, note it's overkill for N<100):**
+
+```python
+def _miller_rabin_test(d, n, a):
+    # Compute a^d % n
+    x = pow(a, d, n)
+    if x == 1 or x == n - 1:
+        return True # Probably prime
+
+    # Iterate s-1 times
+    while d != n - 1:
+        x = (x * x) % n
+        d *= 2
+        if x == 1:
+            return False # Composite
+        if x == n - 1:
+            return True # Probably prime
+
+    return False # Composite
+
+def is_prime_miller_rabin(n):
+    if n <= 1:
+        return False
+    if n <= 3:
+        return True
+    if n % 2 == 0: # Handle even numbers, as test is for odd n
+        return False
+
+    # Write n-1 as 2^s * d
+    d = n - 1
+    s = 0
+    while d % 2 == 0:
+        d //= 2
+        s += 1
+
+    # For n < 100, just testing base 2 is sufficient.
+    # For larger numbers, you'd test more bases (e.g., [2, 3, 5, 7, 11] for very large numbers).
+    bases = [2] # Sufficient for n < 2047
+    
+    for a in bases:
+        if not _miller_rabin_test(d, n, a):
+            return False
+            
+    return True # Deterministically prime for n < 2047 with base 2
+    # For larger N, this would be ""Probably Prime"" without more bases
+```
+
+**Pros:**
+*   **Extremely fast for very large numbers:** Its time complexity is `O(k * log^3 n)`, where `k` is the number of bases tested. This is much faster than trial division for numbers with hundreds of digits.
+*   **Probabilistic (but can be deterministic):** While inherently probabilistic, for specific ranges of `n`, a fixed set of bases can guarantee determinism.
+
+**Cons:**
+*   **Complex to implement:** Requires modular exponentiation and understanding of number theory concepts.
+*   **Overkill for small numbers:** The overhead of the algorithm (finding `s` and `d`, performing modular exponentiation) makes it slower than trial division for `n < 100`.
+
+---
+
+### Evaluation: Which is Best for `n < 100`?
+
+Let's evaluate based on efficiency, simplicity, and applicability for `n < 100`.
+
+1.  **Basic Loop (Trial Division):**
+    *   **Efficiency:** Excellent. For `n < 100`, `sqrt(n)` is at most `sqrt(99)` which is about 9.95. You'd perform at most a handful of divisions. This is incredibly fast.
+    *   **Simplicity:** Very simple to understand and implement.
+    *   **Memory:** Minimal.
+    *   **Applicability:** Perfect for checking a single number or a few numbers in this range.
+
+2.  **Sieve of Eratosthenes:**
+    *   **Efficiency:** Excellent for generating *all* primes up to 100. The setup time is minimal for `N=100`, and subsequent lookups are O(1).
+    *   **Simplicity:** Relatively straightforward to implement.
+    *   **Memory:** Requires an array of 101 booleans, which is negligible.
+    *   **Applicability:** Best if you need to find *all* primes up to 100, or if you plan to check primality for *many different numbers* within the 0-100 range repeatedly. The one-time setup cost is amortized.
+
+3.  **Miller-Rabin Test:**
+    *   **Efficiency:** Poor for `n < 100`. While powerful for large numbers, the computational overhead (modular exponentiation, finding `s` and `d`) is significantly higher than simple divisions for small `n`. It's like using a sledgehammer to crack a nut.
+    *   **Simplicity:** Most complex to implement correctly.
+    *   **Memory:** Minimal, but more variables for intermediate calculations.
+    *   **Applicability:** **Not suitable for `n < 100`.** It's overkill and slower than trial division. Its real strength lies in dealing with numbers that are too large for trial division.
+
+---
+
+**Conclusion for `n < 100`:**
+
+*   **For checking a *single* number's primality (e.g., ""Is 97 prime?""):** The **Basic Loop (Trial Division)** is the clear winner. It's the simplest, fastest, and most memory-efficient method for this specific task and range.
+
+*   **For finding *all* prime numbers up to 100, or for repeatedly checking the primality of *multiple numbers* within the 0-100 range:** The **Sieve of Eratosthenes** is superior. After a quick initial setup, all subsequent primality checks become trivial O(1) array lookups.
+
+*   The **Miller-Rabin test is completely inappropriate** and inefficient for numbers as small as `n < 100`. While it *can* be used (deterministically with fixed bases), its overhead makes it strictly worse than the other two options for this range."
+Role-Playing Prompting,"You are a senior Python engineer mentoring a student. Write a clean, efficient function to check if a number is prime and explain your approach.","Alright, let's tackle this classic problem! Checking if a number is prime is a fundamental concept in computer science and mathematics, and it's a great exercise for thinking about efficiency.
+
+As a senior engineer, I'll emphasize not just getting the right answer, but getting it *efficiently* and *cleanly*. We'll break down the logic step-by-step.
+
+---
+
+### The Problem: `is_prime(number)`
+
+Write a Python function `is_prime(number)` that returns `True` if `number` is a prime number, and `False` otherwise.
+
+---
+
+### The Solution
+
+```python
+import math
+
+def is_prime(number: int) -> bool:
+    """"""
+    Checks if a given integer is a prime number.
+
+    A prime number is a natural number greater than 1 that has no positive
+    divisors other than 1 and itself.
+
+    Args:
+        number: The integer to check for primality.
+
+    Returns:
+        True if the number is prime, False otherwise.
+
+    Examples:
+        >>> is_prime(2)
+        True
+        >>> is_prime(7)
+        True
+        >>> is_prime(1)
+        False
+        >>> is_prime(4)
+        False
+        >>> is_prime(0)
+        False
+        >>> is_prime(131)
+        True
+    """"""
+    # 1. Handle base cases and edge cases efficiently
+    # Numbers less than or equal to 1 are not prime by definition.
+    if number <= 1:
+        return False
+    # 2 is the only even prime number.
+    if number == 2:
+        return True
+    # All other even numbers are not prime, as they are divisible by 2.
+    if number % 2 == 0:
+        return False
+
+    # 2. Optimized checking: Iterate only up to the square root
+    # If 'number' has a divisor greater than its square root, it must also
+    # have a divisor smaller than its square root. So, we only need to check
+    # for divisors up to the square root of 'number'.
+    # math.isqrt() is efficient for integer square roots.
+    limit = math.isqrt(number)
+
+    # 3. Optimized iteration: Only check odd divisors
+    # Since we've already handled even numbers (via `number % 2 == 0`),
+    # we only need to check for odd divisors starting from 3, incrementing by 2.
+    for i in range(3, limit + 1, 2):
+        if number % i == 0:
+            return False  # Found a divisor, so it's not prime
+
+    # If no divisors were found up to the square root, the number is prime.
+    return True
+
+```
+
+---
+
+### Explanation of Approach (Mentoring Session)
+
+""Alright, `<student_name>`, let's walk through this `is_prime` function. Our goal here is not just to make it work, but to make it *robust*, *readable*, and *efficient*.
+
+#### 1. Handling Base Cases and Edge Cases (`if number <= 1`, `if number == 2`, `if number % 2 == 0`)
+
+""This is always the first step for numerical problems. Think about the definitions:
+*   **What is a prime number?** A natural number greater than 1 that has no positive divisors other than 1 and itself.
+*   This immediately tells us that `0`, `1`, and any negative numbers are **not prime**. So, `if number <= 1: return False`. This handles a broad range of non-primes right at the start.
+*   **What about 2?** It's the smallest prime number, and it's unique because it's the *only* even prime. So, `if number == 2: return True`.
+*   **What about other even numbers?** Any even number greater than 2 will be divisible by 2 (besides 1 and itself). So, `if number % 2 == 0: return False`. This is a huge optimization! We just eliminated half of all possible inputs from further checks.
+
+""By handling these initial cases, we quickly filter out many non-primes, and we also set up our main loop to only deal with odd numbers, which simplifies our later logic.""
+
+#### 2. The Square Root Optimization (`limit = math.isqrt(number)`)
+
+""This is the most crucial optimization for primality testing. Imagine a number, say `n`. If `n` has a divisor `d`, then `n` can be written as `n = d * k` for some other number `k`.
+
+""Now, consider these two scenarios:
+*   If `d > sqrt(n)`, then `k` *must* be `k < sqrt(n)`.
+*   If `d < sqrt(n)`, then `k` *must* be `k > sqrt(n)`.
+*   If `d = sqrt(n)`, then `k` also equals `sqrt(n)`.
+
+""What does this mean for us? It means that if `n` has *any* divisor, it *must* have at least one divisor that is less than or equal to its square root. Think of it as paired factors: if you find one factor larger than the square root, its 'partner' factor *must* be smaller than the square root.
+
+""So, instead of checking for divisibility all the way up to `number - 1` (or `number / 2`), we only need to check up to `int(sqrt(number))`. This dramatically reduces the number of operations, especially for large numbers. For example, to check if 1,000,000 is prime, we'd only need to check up to 1,000, not 500,000!
+
+""We use `math.isqrt()` (available in Python 3.8+) because it computes the integer square root very efficiently and accurately. If you were on an older Python, `int(math.sqrt(number))` would be the equivalent.""
+
+#### 3. Stepping by 2 (`for i in range(3, limit + 1, 2)`)
+
+""Since we've already handled `2` and all other even numbers in our initial checks (`if number % 2 == 0`), we know that if `number` is still in consideration, it *must* be an odd number.
+
+""This means `number` can only have odd divisors. There's no point in checking if `number` is divisible by `4`, `6`, `8`, etc., because if it were, it would already have been caught by the `number % 2 == 0` check.
+
+""So, in our loop, we start at `3` (the next odd prime after 2) and increment our counter `i` by `2` in each step (`range(3, limit + 1, 2)`). This ensures we only check `3, 5, 7, 9, 11...` and so on, again halving the number of checks in the loop.
+
+#### Putting It All Together
+
+""Combining these three ideas:
+1.  **Quick rejections:** Filter out non-positive numbers, 1, and all even numbers (except 2).
+2.  **Square root limit:** Check for divisors only up to `sqrt(number)`.
+3.  **Odd steps:** Within that limit, only check odd divisors.
+
+""If, after all these checks, we haven't found any divisors, it means the number has no divisors other than 1 and itself, so it must be prime!""
+
+#### Important Mentoring Points:
+
+*   **Readability:** Notice the docstring explaining what the function does, its arguments, return values, and providing examples. This is crucial for anyone (including your future self) reading your code. Type hints (`number: int -> bool`) also improve clarity.
+*   **Comments:** Use comments to explain the *why* behind design decisions, especially for optimizations.
+*   **Testing:** Always test your functions with a variety of inputs: base cases (0, 1, 2), small primes (3, 7), small composites (4, 9), larger primes, and larger composites. The `>>>` examples in the docstring are a form of test.
+*   **Beyond this:** For extremely large numbers (hundreds of digits), even this optimized approach becomes too slow. That's when we look into more advanced algorithms like the Miller-Rabin primality test (probabilistic) or elliptic curve primality proving (deterministic but complex). For finding *many* primes up to a certain limit, you'd use a sieve algorithm like the Sieve of Eratosthenes. But for checking a single number, our current approach is excellent.
+
+""Great job following along! Do you have any questions about any part of this logic?"""
+Self-Critique Prompting,"Write a function to check if a number is prime. Now critique your solution for readability, correctness, and speed. Suggest and implement improvements.","A prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself.
+
+Let's start with a basic, straightforward implementation.
+
+---
+
+## 1. Initial Solution
+
+```python
+def is_prime_naive(n: int) -> bool:
+    """"""
+    Checks if a number is prime using a naive approach.
+
+    Args:
+        n: The integer to check.
+
+    Returns:
+        True if n is prime, False otherwise.
+    """"""
+    if n <= 1:
+        return False  # Numbers less than or equal to 1 are not prime
+    
+    # Check for divisibility from 2 up to n-1
+    for i in range(2, n):
+        if n % i == 0:
+            return False  # Found a divisor, so it's not prime
+            
+    return True  # No divisors found, so it's prime
+
+# --- Example Usage ---
+print(f""is_prime_naive(2): {is_prime_naive(2)}"")    # Expected: True
+print(f""is_prime_naive(7): {is_prime_naive(7)}"")    # Expected: True
+print(f""is_prime_naive(1): {is_prime_naive(1)}"")    # Expected: False
+print(f""is_prime_naive(9): {is_prime_naive(9)}"")    # Expected: False
+print(f""is_prime_naive(100): {is_prime_naive(100)}"")# Expected: False
+print(f""is_prime_naive(97): {is_prime_naive(97)}"")  # Expected: True
+```
+
+---
+
+## 2. Critique of the Initial Solution
+
+### Readability:
+*   **Good:** The code is very straightforward and easy to understand. Variable names (`n`, `i`) are clear. The logic follows directly from the definition of a prime number.
+*   **Good:** Early exit for `n <= 1` is clear.
+*   **Good:** Docstrings explain the function's purpose, arguments, and return value.
+
+### Correctness:
+*   **Correct:** Correctly identifies numbers less than or equal to 1 as not prime.
+*   **Correct:** Handles 2 correctly (it's prime, loop `range(2,2)` is empty, returns True).
+*   **Correct:** Correctly identifies composite numbers by finding a divisor.
+*   **Correct:** Correctly identifies prime numbers by exhausting all possible divisors without finding one.
+
+### Speed:
+*   **Poor:** This is the main weakness. The loop iterates from `2` up to `n-1`.
+    *   **Time Complexity:** O(N). For large numbers, this becomes very inefficient.
+    *   Example: To check if 1,000,000,007 (a prime number) is prime, it would perform nearly a billion division checks. This is impractical.
+
+---
+
+## 3. Suggestions and Implementation of Improvements
+
+We can significantly improve the speed by leveraging mathematical properties of prime numbers.
+
+**Key Optimizations:**
+
+1.  **Numbers <= 1 are not prime:** Keep this initial check.
+2.  **Handle 2 specifically:** 2 is the only even prime number.
+3.  **Handle other even numbers:** Any even number greater than 2 is not prime (it's divisible by 2). This immediately cuts the search space in half.
+4.  **Divisors up to `sqrt(n)`:** If a number `n` has a divisor `d` greater than `sqrt(n)`, then `n/d` must be a divisor less than `sqrt(n)`. Therefore, we only need to check for divisors up to `sqrt(n)`. If we don't find any, there won't be any larger ones either.
+5.  **Check only odd divisors:** After handling 2 and other even numbers, we only need to check odd numbers as potential divisors (3, 5, 7, ...). We can increment our loop by 2.
+
+### Improved Solution
+
+```python
+import math
+
+def is_prime_optimized(n: int) -> bool:
+    """"""
+    Checks if a number is prime using optimized checks up to sqrt(n).
+
+    Args:
+        n: The integer to check.
+
+    Returns:
+        True if n is prime, False otherwise.
+    """"""
+    if n <= 1:
+        return False  # Numbers less than or equal to 1 are not prime
+    
+    if n == 2:
+        return True   # 2 is the only even prime number
+    
+    if n % 2 == 0:
+        return False  # All other even numbers are not prime
+
+    # Check for odd divisors from 3 up to sqrt(n)
+    # We can skip even numbers because we already handled n % 2 == 0
+    # The loop goes up to int(sqrt(n)), so we need +1 for range() to include it.
+    limit = int(math.sqrt(n)) + 1 
+    for i in range(3, limit, 2):  # Start at 3, increment by 2 (checking only odd numbers)
+        if n % i == 0:
+            return False  # Found a divisor, so it's not prime
+            
+    return True  # No divisors found, so it's prime
+
+# --- Example Usage ---
+print(""\n--- Optimized Solution Examples ---"")
+print(f""is_prime_optimized(2): {is_prime_optimized(2)}"")    # Expected: True
+print(f""is_prime_optimized(7): {is_prime_optimized(7)}"")    # Expected: True
+print(f""is_prime_optimized(1): {is_prime_optimized(1)}"")    # Expected: False
+print(f""is_prime_optimized(9): {is_prime_optimized(9)}"")    # Expected: False
+print(f""is_prime_optimized(100): {is_prime_optimized(100)}"")# Expected: False
+print(f""is_prime_optimized(97): {is_prime_optimized(97)}"")  # Expected: True
+
+# Testing with a larger prime number
+large_prime = 1_000_000_007 # A known prime number
+print(f""is_prime_optimized({large_prime}): {is_prime_optimized(large_prime)}"") # Expected: True
+
+# Testing with a large composite number
+large_composite = 1_000_000_001 # 1,000,000,001 = 17 * 58,823,529
+print(f""is_prime_optimized({large_composite}): {is_prime_optimized(large_composite)}"") # Expected: False
+```
+
+---
+
+## 4. Critique of the Improved Solution
+
+### Readability:
+*   **Good:** The code is still quite readable. The early exit conditions for `n <= 1`, `n == 2`, and `n % 2 == 0` are clear and improve flow.
+*   **Good:** Comments explain the `sqrt(n)` optimization and the step-by-2 loop.
+*   **Good:** Docstrings are present and updated.
+*   **Minor Note:** It's slightly more complex than the naive version due to the multiple early exits and the `sqrt` calculation, but the performance gain justifies this.
+
+### Correctness:
+*   **Correct:** All edge cases (0, 1, 2, negatives) are handled correctly.
+*   **Correct:** Even numbers (except 2) are correctly dismissed.
+*   **Correct:** The `sqrt(n)` optimization is mathematically sound and correctly implemented (using `int(math.sqrt(n)) + 1` for `range`).
+*   **Correct:** Checking only odd divisors after handling 2 is correct.
+
+### Speed:
+*   **Excellent:** This is where the solution shines.
+    *   **Time Complexity:** O(sqrt(N)). For a number `N`, it performs roughly `sqrt(N)/2` division checks.
+    *   Example: To check if 1,000,000,007 is prime: `sqrt(1,000,000,007)` is approximately 31,622. The function performs about 15,811 division checks, which is orders of magnitude faster than a billion.
+*   **Early Exits:** The checks for `n <= 1`, `n == 2`, and `n % 2 == 0` are very fast constant-time operations that quickly filter out many non-prime numbers.
+
+---
+
+## 5. Further Possible Optimizations (Beyond this scope, but good to know)
+
+For extremely large numbers (hundreds of digits), even `O(sqrt(N))` is too slow. Advanced algorithms are used:
+
+*   **Probabilistic Tests (e.g., Miller-Rabin Primality Test):** These tests are much faster but have a very small probability of declaring a composite number as prime. For most practical purposes, the probability of error is astronomically low. This is the most common approach for very large numbers in cryptography.
+*   **Deterministic Tests (e.g., AKS Primality Test):** This test is guaranteed to determine primality correctly in polynomial time, but it's typically slower than probabilistic tests for practical purposes.
+*   **Pre-computation (Sieve of Eratosthenes):** If you need to find *all* prime numbers up to a certain limit (e.g., 1,000,000), using a sieve algorithm is far more efficient than checking each number individually. However, this is for generating primes, not checking a single arbitrary number."
+Retrieval-Augmented Prompting,"Using information from the official Python documentation or Stack Overflow examples, write a function that returns True if a number is prime.","To determine if a number is prime, we need to check if it has any divisors other than 1 and itself. The most efficient way to do this is to check for divisibility only up to the square root of the number.
+
+Here's a Python function based on this principle, commonly found in sources like Stack Overflow examples for prime number checks, and utilizing Python's built-in `math` module (documented in the official Python documentation).
+
+```python
+import math
+
+def is_prime(n: int) -> bool:
+    """"""
+    Checks if a given integer is a prime number.
+
+    A prime number is a natural number greater than 1 that has no positive
+    divisors other than 1 and itself.
+
+    This implementation uses optimizations:
+    1. Handles base cases for 0, 1, and 2.
+    2. Excludes all even numbers (except 2) from consideration early.
+    3. Checks for divisors only up to the square root of n, iterating only
+       through odd numbers.
+
+    Args:
+        n (int): The integer to check.
+
+    Returns:
+        bool: True if n is a prime number, False otherwise.
+
+    Examples:
+        >>> is_prime(2)
+        True
+        >>> is_prime(7)
+        True
+        >>> is_prime(1)
+        False
+        >>> is_prime(0)
+        False
+        >>> is_prime(-5)
+        False
+        >>> is_prime(4)
+        False
+        >>> is_prime(9)
+        False
+        >>> is_prime(25)
+        False
+        >>> is_prime(101)
+        True
+        >>> is_prime(997) # A large prime
+        True
+    """"""
+    # 1. Prime numbers are natural numbers greater than 1.
+    #    So, numbers less than or equal to 1 are not prime.
+    if n <= 1:
+        return False
+    
+    # 2. 2 is the only even prime number.
+    if n == 2:
+        return True
+    
+    # 3. All other even numbers are not prime.
+    if n % 2 == 0:
+        return False
+    
+    # 4. Check for odd divisors from 3 up to the square root of n.
+    #    We only need to check up to sqrt(n) because if n has a divisor d > sqrt(n),
+    #    then it must also have a divisor n/d < sqrt(n).
+    #    The 'range' function's stop value is exclusive, so we add 1 to include
+    #    the ceiling of sqrt(n). We step by 2 to check only odd numbers.
+    limit = int(math.sqrt(n)) + 1
+    for i in range(3, limit, 2):
+        if n % i == 0:
+            return False  # Found a divisor, so it's not prime
+            
+    # If no divisors were found, the number is prime.
+    return True
+
+# --- Example Usage ---
+if __name__ == ""__main__"":
+    print(f""Is 2 prime? {is_prime(2)}"")        # Expected: True
+    print(f""Is 7 prime? {is_prime(7)}"")        # Expected: True
+    print(f""Is 1 prime? {is_prime(1)}"")        # Expected: False
+    print(f""Is 0 prime? {is_prime(0)}"")        # Expected: False
+    print(f""Is -5 prime? {is_prime(-5)}"")      # Expected: False
+    print(f""Is 4 prime? {is_prime(4)}"")        # Expected: False
+    print(f""Is 9 prime? {is_prime(9)}"")        # Expected: False
+    print(f""Is 25 prime? {is_prime(25)}"")      # Expected: False
+    print(f""Is 101 prime? {is_prime(101)}"")    # Expected: True
+    print(f""Is 997 prime? {is_prime(997)}"")    # Expected: True (a large prime)
+    print(f""Is 1000 prime? {is_prime(1000)}"")  # Expected: False
+```
+
+**Explanation and Source Information:**
+
+1.  **Definition of Prime Numbers:** The function correctly implements the mathematical definition: a natural number greater than 1 that has no positive divisors other than 1 and itself. This leads to the initial checks for `n <= 1`.
+
+2.  **Handling `2` and Even Numbers:**
+    *   `2` is the smallest and only even prime number. It's handled as a special case (`if n == 2: return True`).
+    *   Any other even number (`n % 2 == 0`) is immediately determined not to be prime. This is a common optimization seen in many prime-checking algorithms on Stack Overflow and in programming tutorials.
+
+3.  **Square Root Optimization:**
+    *   The core optimization is checking divisors only up to `sqrt(n)`. This is a standard mathematical property used in primality tests. If a number `n` has a divisor `d` greater than `sqrt(n)`, then `n/d` must be a divisor smaller than `sqrt(n)`. Therefore, we only need to check up to `sqrt(n)`.
+    *   **Python `math` Module:** The `math.sqrt()` function is used to calculate the square root. The `math` module is part of Python's standard library, and its functions are well-documented in the official Python documentation (e.g., [https://docs.python.org/3/library/math.html](https://docs.python.org/3/library/math.html)).
+    *   `int(math.sqrt(n)) + 1`: We convert `math.sqrt(n)` to an integer because `range()` requires integer arguments. We add `1` because `range()`'s end value is exclusive (e.g., `range(3, 5)` iterates only for `3` and `4`). This ensures we check up to and including the integer part of `sqrt(n)`.
+
+4.  **Checking Only Odd Divisors:**
+    *   After handling `2` and other even numbers, we know `n` (if not already returned) must be an odd number.
+    *   Therefore, any potential divisors must also be odd. We start the loop from `3` and use a step of `2` (`range(3, limit, 2)`) to efficiently check only odd numbers (`3, 5, 7, ...`). This is another common optimization found in prime number examples.
+
+This function provides a robust and reasonably efficient way to check for primality for typical integer ranges, drawing directly from standard practices demonstrated in programming communities like Stack Overflow and relying on Python's built-in mathematical capabilities."
+Prompt Chaining,Step 1: Write a helper function to check if a number is divisible by another. Step 2: Use that to build a prime-checking function.,"Let's break this down step-by-step!
+
+---
+
+### Step 1: Write a helper function to check if a number is divisible by another.
+
+The modulo operator (`%`) is perfect for this. `a % b` gives the remainder when `a` is divided by `b`. If the remainder is 0, then `a` is divisible by `b`.
+
+```python
+def is_divisible(num: int, divisor: int) -> bool:
+    """"""
+    Checks if 'num' is perfectly divisible by 'divisor'.
+
+    Args:
+        num (int): The number to be checked for divisibility.
+        divisor (int): The number that might divide 'num'.
+
+    Returns:
+        bool: True if 'num' is divisible by 'divisor', False otherwise.
+              Returns False if divisor is 0 to prevent ZeroDivisionError.
+    """"""
+    if divisor == 0:
+        return False  # A number cannot be perfectly divided by zero in this context.
+    return num % divisor == 0
+
+# --- Test cases for is_divisible ---
+print(""--- Testing is_divisible ---"")
+print(f""Is 10 divisible by 2? {is_divisible(10, 2)}"")   # Expected: True
+print(f""Is 10 divisible by 3? {is_divisible(10, 3)}"")   # Expected: False
+print(f""Is 7 divisible by 7? {is_divisible(7, 7)}"")     # Expected: True
+print(f""Is 0 divisible by 5? {is_divisible(0, 5)}"")     # Expected: True
+print(f""Is 5 divisible by 0? {is_divisible(5, 0)}"")     # Expected: False (handled)
+print(f""Is -6 divisible by 2? {is_divisible(-6, 2)}"")  # Expected: True
+print(""-"" * 30)
+```
+
+---
+
+### Step 2: Use that to build a prime-checking function.
+
+A prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself.
+
+Here's how we'll build `is_prime` using `is_divisible`:
+
+1.  **Handle base cases:**
+    *   Numbers less than or equal to 1 are not prime.
+    *   2 is the only even prime number.
+2.  **Optimize for even numbers:** If a number is greater than 2 and is even, it's not prime (since it's divisible by 2).
+3.  **Check odd divisors:** For numbers greater than 2 and odd, we only need to check for divisibility by odd numbers starting from 3 up to the square root of the number. If we find any such divisor, the number is not prime. If we don't find any, it is prime.
+
+```python
+import math
+
+def is_prime(num: int) -> bool:
+    """"""
+    Checks if a number is a prime number.
+
+    A prime number is a natural number greater than 1 that has no positive
+    divisors other than 1 and itself.
+
+    Args:
+        num (int): The number to check.
+
+    Returns:
+        bool: True if the number is prime, False otherwise.
+    """"""
+    # 1. Handle base cases
+    if num <= 1:
+        return False  # Numbers <= 1 are not prime
+    if num == 2:
+        return True   # 2 is the only even prime number
+
+    # 2. Optimize for even numbers greater than 2
+    # If it's an even number (and not 2), it's not prime
+    if is_divisible(num, 2):
+        return False
+
+    # 3. Check for divisibility by odd numbers
+    # We only need to check up to the square root of num.
+    # If num has a divisor larger than its square root, it must also have
+    # a divisor smaller than its square root.
+    # We increment by 2 (i.e., check only odd numbers) because we've
+    # already handled even divisors above.
+    limit = int(math.sqrt(num)) + 1 # Calculate limit for the loop
+
+    for i in range(3, limit, 2): # Start from 3, increment by 2 (odd numbers)
+        if is_divisible(num, i):
+            return False  # Found a divisor, so it's not prime
+
+    # If no divisors were found, the number is prime
+    return True
+
+# --- Test cases for is_prime ---
+print(""\n--- Testing is_prime ---"")
+print(f""Is -5 prime? {is_prime(-5)}"")   # Expected: False
+print(f""Is 0 prime? {is_prime(0)}"")     # Expected: False
+print(f""Is 1 prime? {is_prime(1)}"")     # Expected: False
+print(f""Is 2 prime? {is_prime(2)}"")     # Expected: True
+print(f""Is 3 prime? {is_prime(3)}"")     # Expected: True
+print(f""Is 4 prime? {is_prime(4)}"")     # Expected: False (divisible by 2)
+print(f""Is 5 prime? {is_prime(5)}"")     # Expected: True
+print(f""Is 7 prime? {is_prime(7)}"")     # Expected: True
+print(f""Is 9 prime? {is_prime(9)}"")     # Expected: False (divisible by 3)
+print(f""Is 11 prime? {is_prime(11)}"")   # Expected: True
+print(f""Is 25 prime? {is_prime(25)}"")   # Expected: False (divisible by 5)
+print(f""Is 97 prime? {is_prime(97)}"")   # Expected: True (a larger prime)
+print(f""Is 99 prime? {is_prime(99)}"")   # Expected: False (divisible by 3, 9, 11, 33)
+print(""-"" * 30)
+```
+
+This solution effectively uses the `is_divisible` helper function to build the `is_prime` function, following the specified steps."
+Meta-Prompting,Generate a prompt that would guide a beginner to write a correct and efficient function to check if a number is prime.,"Here's a prompt designed to guide a beginner through writing a correct and efficient prime checking function:
+
+---
+
+## Crafting a Correct & Efficient Prime Number Checker
+
+**Welcome, future programmer!** Your challenge is to write a Python function that can determine if a given number is ""prime"" or not. This is a classic problem that helps you practice fundamental programming concepts like loops, conditional statements, and thinking about efficiency.
+
+---
+
+### **Part 1: Understanding Prime Numbers**
+
+Before you write any code, let's make sure we're on the same page about what a prime number is:
+
+*   A **prime number** is a natural number greater than 1 that has no positive divisors other than 1 and itself.
+*   **Examples of prime numbers:** 2, 3, 5, 7, 11, 13, 17...
+*   **Examples of non-prime (composite) numbers:** 4 (divisible by 2), 6 (divisible by 2, 3), 9 (divisible by 3), 10 (divisible by 2, 5).
+
+**Crucial Edge Cases:**
+*   **Numbers less than or equal to 1 (e.g., 0, 1, -5):** These are **not** considered prime by definition. Your function should return `False` for them.
+*   **The number 2:** This is the *only* even prime number.
+
+---
+
+### **Part 2: Your Function Requirements**
+
+You need to create a Python function named `is_prime` that follows these rules:
+
+*   **Function Signature:** `def is_prime(number):`
+*   **Input:** It will take one argument, `number`, which will be an integer.
+*   **Output:**
+    *   Return `True` if `number` is prime.
+    *   Return `False` if `number` is not prime.
+
+---
+
+### **Part 3: Step-by-Step Guidance (Think Correctness First, then Efficiency!)**
+
+Let's break down how to build this function, starting with a simple, correct approach and then optimizing it.
+
+**Step 1: Handle the ""Easy"" Cases (Correctness)**
+
+*   **Numbers <= 1:** Start your function by checking if `number` is less than or equal to 1. If it is, immediately `return False`. (Why? Because 0, 1, and negative numbers are not prime).
+*   **The Number 2:** Check if `number` is exactly 2. If it is, immediately `return True`. (Why? It's the only even prime, and our later optimizations might skip it if not handled).
+
+**Step 2: The Basic Brute-Force Check (Correctness)**
+
+*   Now, consider numbers greater than 2. How can we check if they are prime? We need to see if they are divisible by any number *other than 1 and themselves*.
+*   **Looping Idea:** You can iterate through numbers starting from 2 up to `number - 1`.
+*   **Divisibility Check:** Inside your loop, use the modulo operator (`%`). If `number % i == 0` for any `i` in your loop, it means `number` has a divisor other than 1 and itself, so it's **not prime**. In this case, `return False`.
+*   **If the Loop Finishes:** If your loop completes without finding any divisors (i.e., without returning `False`), it means `number` must be prime! So, after the loop, `return True`.
+
+    *Self-check:* Try mentally running this logic for `7` and `9`. Does it work?
+
+**Step 3: Optimizing for Efficiency (Making it Faster!)**
+
+Your brute-force method works, but it can be slow for very large numbers. Let's make it faster!
+
+*   **Optimization 1: The Square Root Limit**
+    *   **The Insight:** If a number `n` has a divisor `d` that is greater than `sqrt(n)`, then it must also have a corresponding divisor `n/d` that is *smaller* than `sqrt(n)`. This means you only need to check for divisors up to the square root of `n`!
+    *   **How to implement:**
+        *   Import the `math` module: `import math`.
+        *   Calculate the upper limit for your loop: `limit = int(math.sqrt(number))`. You can also use `math.isqrt(number)` in Python 3.8+ for integer square root.
+        *   Change your loop to iterate from 2 up to `limit` (inclusive). So, `range(2, limit + 1)`.
+
+*   **Optimization 2: Skipping Even Numbers (After 2)**
+    *   **The Insight:** After checking if a number is 2 (which is prime), you know that no other *even* number can be prime (because all other even numbers are divisible by 2).
+    *   **How to implement:**
+        *   After your `number <= 1` and `number == 2` checks, add a check: If `number % 2 == 0` (and we already know it's not 2), then it's definitely not prime. `return False`.
+        *   Now, for your loop, you only need to check *odd* divisors. You can start your loop from 3 and increment by 2 in each step. (e.g., `range(3, limit + 1, 2)`).
+
+---
+
+### **Part 4: Test Your Code!**
+
+It's vital to test your function with various inputs to ensure it works correctly for all cases.
+
+**Expected Outputs:**
+
+*   `is_prime(2)` should return `True`
+*   `is_prime(3)` should return `True`
+*   `is_prime(7)` should return `True`
+*   `is_prime(1)` should return `False`
+*   `is_prime(0)` should return `False`
+*   `is_prime(-5)` should return `False`
+*   `is_prime(4)` should return `False`
+*   `is_prime(9)` should return `False`
+*   `is_prime(100)` should return `False`
+*   `is_prime(101)` should return `True` (101 is prime)
+*   `is_prime(97)` should return `True` (97 is prime)
+
+---
+
+### **Part 5: Reflect and Improve (Bonus Challenges!)**
+
+*   **Add Comments:** Explain your logic within the code using comments (`#`).
+*   **Docstrings:** Write a brief description of what your function does, its parameters, and what it returns using a docstring (triple quotes `""""""Docstring goes here""""""` right after `def`).
+*   **Time Complexity:** (For the curious!) Can you describe why your optimized function is more efficient than the basic one? Think about how the number of operations changes as `number` gets larger.
+*   **Even More Optimization:** For extremely large numbers, you could look into ""pre-sieving"" or other advanced primality tests, but that's for another day!
+
+Good luck, and have fun coding!"

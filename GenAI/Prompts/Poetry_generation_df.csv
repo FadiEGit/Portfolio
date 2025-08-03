@@ -1,0 +1,579 @@
+Prompting Technique,Example Prompt,gemini Response
+Zero-Shot Prompting,Write a poem about the changing seasons.,"The slow, sure turning of the year,
+A whisper soft, then strong and clear,
+As nature spins its grand design,
+And time unfolds a vibrant line.
+
+First comes the Spring, with gentle hand,
+Awakening the sleeping land.
+Where tiny shoots begin to break,
+And sleepy streams to gurgle wake.
+A blush of green, a robin's call,
+Life bursts anew for one and all,
+Dispelling chill, a fresh embrace,
+With promises in every space.
+
+Then Summer steps with golden grace,
+A fiery smile upon her face.
+The days stretch out, a boundless treat,
+With buzzing bees and sunlit wheat.
+Lush emerald reigns, a vibrant hue,
+Beneath the sky of deepest blue.
+A time of growth, of warmth and play,
+Before the light begins to fray.
+
+But Summer's reign must softly fade,
+As Autumn's palette is displayed.
+With crimson leaves and amber bright,
+A gentle chill, a fading light.
+The harvest gathered, crisp the breeze,
+A whispering through fading trees.
+A poignant beauty, rich and deep,
+As nature settles down to sleep.
+
+And Winter comes, a silent hush,
+Across the world, a frosty blush.
+With stark white fields and frozen streams,
+A land of quiet, sleepy dreams.
+The world in slumber, pure and deep,
+While hidden life begins to sleep,
+A pause, a stillness, cold and vast,
+Before the cycle starts at last.
+
+So round and round the seasons turn,
+A timeless lesson we discern.
+Of life and death, of rest and rebirth,
+The endless rhythm of the Earth.
+Each change a gift, a moment true,
+Forever old, forever new."
+Few-Shot Prompting,"Example 1: “The moonlight pours on silent stone / A night of whispers, cold and lone.”\nExample 2: “Rain taps gently on the pane / Echoes of a quiet refrain.”\nNow write a new poem about autumn.",Golden light on branches bare / A chilly whisper fills the air.
+Chain-of-Thought Prompting,"Let’s think through this poem step by step. First, choose a theme. Then select imagery and a structure. Now write each stanza thoughtfully.","Okay, let's break this down step by step to create a thoughtful poem.
+
+***
+
+### Step 1: Choose a Theme
+
+I'll choose the theme of **""The Quiet Unfolding""**.
+*   **Elaboration:** This theme explores the subtle, often unseen process of transformation, growth, and becoming. It focuses on internal potential, patience, and the gentle revelation of one's true nature or purpose, often drawing parallels with natural cycles.
+
+***
+
+### Step 2: Select Imagery and Structure
+
+*   **Imagery Pool (drawing from the ""Quiet Unfolding"" theme):**
+    *   **Nature:** Seed, root, earth, sun, light, dawn, sprout, leaf, bud, bloom, shadow, wind, rain, stream, sky, stars, seasons (especially spring/summer as catalysts).
+    *   **Abstract/Sensory:** Whisper, hum, ancient, fragile, steady, patient, silence, grace, light, shadow, dream, echo, hidden, unveiled, tapestry, thread.
+    *   **Human Elements (subtle):** Breath, heart, memory, a quiet hand, a patient gaze.
+
+*   **Structure:**
+    *   **Stanza Length:** Quatrains (4 lines per stanza) for a consistent and manageable flow.
+    *   **Rhyme Scheme:** ABAB (alternating rhyme) for a classic, gentle musicality.
+    *   **Meter/Rhythm:** Aim for a relatively consistent line length (around 8-10 syllables) and a natural, flowing rhythm, leaning towards iambic (unstressed-stressed) patterns, but prioritizing natural language.
+
+***
+
+### Step 3: Write Each Stanza Thoughtfully
+
+Here's my thought process for each stanza, building on the theme and chosen elements:
+
+**Stanza 1: The Incubation/Hidden Potential**
+*   **Goal:** Introduce the idea of something waiting, dormant, full of promise. Set a tone of quiet mystery.
+*   **Imagery Focus:** Seed, earth, silence, ancient potential.
+
+    *Drafting Idea:* How does something begin before it's seen? Like a whisper, a deep-rooted idea.
+    *   *Lines:*
+        A quiet hum, a secret breath,
+        Beneath the earth, a seed lies still,
+        Untouched by time, untouched by death,
+        A whispered, ancient, tender will.
+    *(Self-reflection: ""Secret breath"" and ""tender will"" evoke the hidden essence. ""Untouched by time, untouched by death"" emphasizes its timeless potential. Rhyme ABAB: breath/death, still/will. Rhythm feels good.)*
+
+**Stanza 2: The Stirring/First Signs of Life**
+*   **Goal:** Show the initial, often subtle, internal movement towards growth. The impulse to emerge.
+*   **Imagery Focus:** Root, tremor, dark, seeking, promise.
+
+    *Drafting Idea:* What's the very first action? A root reaching, a tremor of awakening.
+    *   *Lines:*
+        A tremor wakes, a gentle grace,
+        A fragile root begins to creep,
+        Explores the dark, its hidden place,
+        Where dormant long, the promise slept.
+    *(Self-reflection: ""Tremor wakes"" is subtle. ""Fragile root begins to creep"" is active yet delicate. ""Explores the dark, its hidden place"" highlights the internal journey. ""Promise slept"" links back to the first stanza's theme. Rhyme ABAB: grace/place, creep/slept.)*
+
+**Stanza 3: The Emergence/Struggle and Growth**
+*   **Goal:** Describe the process of breaking through, facing the elements, and growing outwards.
+*   **Imagery Focus:** Sprout, earth, sky, sun, wind, test.
+
+    *Drafting Idea:* Now it comes to the surface, meets the world. It stretches, it's tested.
+    *   *Lines:*
+        Through stubborn earth, a patient quest,
+        A slender sprout finds open sky,
+        It greets the sun, puts life to test,
+        As gentle breezes whisper by.
+    *(Self-reflection: ""Patient quest"" connects to the theme of quiet unfolding. ""Finds open sky"" signifies breakthrough. ""Puts life to test"" introduces the challenge. ""Gentle breezes whisper by"" adds a natural element. Rhyme ABAB: quest/test, sky/by.)*
+
+**Stanza 4: The Blooming/Full Realization**
+*   **Goal:** Showcase the culmination of the transformation, the beauty and purpose revealed.
+*   **Imagery Focus:** Petals, bloom, color, scent, glow, spirit.
+
+    *Drafting Idea:* The full blossoming, the radiant display. What is its essence?
+    *   *Lines:*
+        Till petals part, a brilliant show,
+        A fragrant whisper, soft and deep,
+        The colors vibrant, start to glow,
+        Secrets the waking spirit keep.
+    *(Self-reflection: ""Brilliant show"" and ""fragrant whisper"" appeal to senses. ""Colors vibrant, start to glow"" evokes the visual beauty. ""Secrets the waking spirit keep"" brings it back to the internal essence of the unfolding. Rhyme ABAB: show/glow, deep/keep.)*
+
+**Stanza 5: Reflection/The Ongoing Cycle**
+*   **Goal:** Provide a sense of completion, but also continuity. The wisdom gained, the idea of beginning anew.
+*   **Imagery Focus:** Timeless art, wisdom, sun/rain, cycle, dream again.
+
+    *Drafting Idea:* Is it over? No, it's a continuous cycle, a learned wisdom.
+    *   *Lines:*
+        So life unfolds, a timeless art,
+        A wisdom born of sun and rain,
+        Each quiet moment plays its part,
+        To rise, to bloom, and dream again.
+    *(Self-reflection: ""Timeless art"" elevates the theme. ""Wisdom born of sun and rain"" acknowledges the journey's lessons. ""Each quiet moment plays its part"" reinforces the gradual process. ""To rise, to bloom, and dream again"" neatly ties back to the beginning and signifies ongoing cycles. Rhyme ABAB: art/part, rain/again.)*
+
+***
+
+### The Complete Poem:
+
+**The Quiet Unfolding**
+
+A quiet hum, a secret breath,
+Beneath the earth, a seed lies still,
+Untouched by time, untouched by death,
+A whispered, ancient, tender will.
+
+A tremor wakes, a gentle grace,
+A fragile root begins to creep,
+Explores the dark, its hidden place,
+Where dormant long, the promise slept.
+
+Through stubborn earth, a patient quest,
+A slender sprout finds open sky,
+It greets the sun, puts life to test,
+As gentle breezes whisper by.
+
+Till petals part, a brilliant show,
+A fragrant whisper, soft and deep,
+The colors vibrant, start to glow,
+Secrets the waking spirit keep.
+
+So life unfolds, a timeless art,
+A wisdom born of sun and rain,
+Each quiet moment plays its part,
+To rise, to bloom, and dream again."
+Iterative Refinement Prompting,"Initial version: “Leaves fall, time crawls.”\nRefinement: Add emotional tone, specific imagery, and a closing twist.","Here are a few options, playing with different emotional tones and twists:
+
+**Option 1 (Melancholy & Regret):**
+
+Golden leaves, like brittle promises, descend,
+Each one a whisper of a fading summer's end.
+A melancholy sigh drifts on the autumn breeze,
+As memory-laden branches shed their fading pleas.
+
+And time, a thick, cold syrup, starts its weary crawl,
+Across the silent floor, beyond the empty hall.
+Each second stretches out, a suffocating thread,
+A heavy pall descends upon the words unsaid.
+
+Leaves fall, time crawls – the world in slow decay,
+The twist? This isn't nature's pace, but **my own endless day.**
+A vigil kept, for something lost, that won't return, or will,
+And time, like my broken heart, is standing still.
+
+---
+
+**Option 2 (Bleakness & Existential Dread):**
+
+Dust-brown leaves, like forgotten dreams, detach and sigh,
+Spiraling slowly down from a bruised and vacant sky.
+The world exhales a chill, a whisper of the grave,
+No future beckons, no lost moment left to save.
+
+And time, a frozen river, cracks in silent pain,
+Each glacial shift a burden, a relentless, numbing strain.
+The clock's tired hands refuse to mark the passing hour,
+Trapped in this stagnant now, stripped bare of all its power.
+
+Leaves fall, time crawls – a silent, slow despair,
+The twist? I am the *root* from which all motion fled.
+For in this desolate quiet, it's not the world that's dead,
+But **every vibrant pulse within me, caught and buried there.**
+
+---
+
+**Option 3 (Quiet Anticipation/Hope – a more subtle twist):**
+
+Crimson leaves drift down, a final, vibrant show,
+Each one a gentle signal, letting go, letting go.
+The air grows sharp and clean, a hush descends the land,
+Awaiting what the winter's silent touch will command.
+
+And time, a slow-drawn breath, exhales the season's plight,
+Moving with measured grace towards the coming light.
+Each lingering moment, rich with quiet, deep content,
+A tranquil pause, a sacred, unhurried consent.
+
+Leaves fall, time crawls – the old world sheds its skin,
+The twist? This slowness isn't grief, but **where new life begins.**
+A patient, deep surrender, to what fate will softly weave,
+For time crawls only when it's waiting to receive.
+
+---
+
+**Key Elements Used in Refinements:**
+
+*   **Emotional Tone:** Established through word choice (melancholy, despair, tranquil, numb, grief, weary, sharp, clean).
+*   **Specific Imagery:** ""Golden leaves,"" ""brittle promises,"" ""thick, cold syrup,"" ""suffocating thread,"" ""dust-brown leaves,"" ""bruised and vacant sky,"" ""frozen river,"" ""glacial shift,"" ""crimson leaves,"" ""sharp and clean air,"" ""slow-drawn breath.""
+*   **Closing Twist:** The ""twist"" shifts the perspective from an external observation to an internal, personal revelation about *why* time crawls, or what that slowness truly signifies for the speaker. It makes the poem about more than just autumn."
+Tree-of-Thought Prompting,"Generate three different poetic styles (haiku, free verse, sonnet) about the theme of loss. Evaluate which best conveys the mood.","Here are three different poetic styles on the theme of loss, followed by an evaluation:
+
+---
+
+### 1. Haiku
+
+Empty space now aches,
+Echoes of a laughter gone,
+Winter wind mourns low.
+
+---
+
+### 2. Free Verse
+
+The air where you once were
+is now a hollow bell, ringing
+with the absence of your laughter.
+
+I trace the empty curve of your pillow,
+a cool space where warmth used to lie.
+Every object in this house
+whispers your name, a brittle leaf
+rustling in the wind of memory.
+
+The world keeps spinning, indifferent,
+and I am a shipwreck,
+adrift in a sea of silence,
+the shore nowhere in sight.
+
+---
+
+### 3. Sonnet (Shakespearean)
+
+When dawn returns, and light begins to creep,
+A hollow echo greets the waking day,
+For in the quiet where you used to sleep,
+A vacant silence holds perpetual sway.
+The vibrant hues that once adorned the air,
+Now seem but ghosts of joy, pale, faint, and thin,
+A heavy burden that my soul must bear,
+A gnawing absence deep and lodged within.
+Though fleeting whispers tease of what once was,
+And phantom warmth still lingers in the mind,
+The present moment offers little cause
+For solace, or for peace I hope to find.
+So grief's dark cloak, my constant close confine,
+Proclaims the void where your dear light did shine.
+
+---
+
+### Evaluation: Which best conveys the mood?
+
+Each poetic style conveys a facet of loss, but in different ways:
+
+1.  **Haiku:** This style excels at capturing a single, poignant moment or sharp pang of emotion. It offers a concise snapshot of absence and sadness, like a sudden intake of breath. The brevity can be powerful because it leaves much unsaid, allowing the reader's own experience of loss to fill the gaps. However, its conciseness also limits its ability to explore the deeper, more complex layers of grief. It conveys a *momentary* mood of sorrow.
+
+2.  **Free Verse:** This style is highly effective in conveying the raw, meandering, and often overwhelming *experience* of loss. Without the constraints of rhyme or strict meter, the language can mimic the natural flow of thought and emotion in grief. The use of varied line lengths and vivid imagery (hollow bell, brittle leaf, shipwreck) allows for a deeper dive into the sensory and emotional landscape of absence. It feels immediate, personal, and less structured, reflecting the chaotic nature of deep sorrow. It best conveys the *mood of ongoing desolation and internal struggle*.
+
+3.  **Sonnet:** The sonnet, with its formal structure, iambic pentameter, and rhyme scheme, lends a sense of gravity, depth, and timelessness to the theme of loss. It offers a more contemplative and intellectual exploration of grief, allowing for the development of ideas and a ""turn"" (volta) that shifts perspective. The elegance of the form can make the sorrow feel profound and enduring, almost a universal lament. While powerful, its formality might make it feel less spontaneous or raw than free verse. It best conveys a *mood of profound, enduring, and somewhat dignified lament*.
+
+**Conclusion:**
+
+While the Haiku offers a sharp, poignant instant, and the Sonnet provides a profound, structured contemplation, the **Free Verse** best conveys the comprehensive *mood* of loss. Its flexibility allows it to articulate the disorienting, pervasive, and deeply personal nature of grief. It captures the raw, unfiltered emotional landscape, the lingering sensory details of absence, and the feeling of being adrift that often accompanies significant loss. It speaks directly to the internal experience of sorrow with an unconstrained honesty that the other forms, by their very nature, cannot fully replicate."
+Role-Playing Prompting,You are a romantic-era poet. Write a passionate poem to your lost love.,"My Love, my Soul, where dost thou roam,
+Beneath the moon, a ghostly gleam?
+My heart, a shattered, echoing tomb,
+Haunted by a vanished dream.
+
+Thy name, a whisper on the night wind borne,
+Thy face, a phantom, exquisitely bright,
+Thy voice, a melody forever torn
+From chords that thrilled my soul with pure delight.
+
+The world moves on, its beauty still unfolds,
+The sun still warms, the rivers flow along,
+But in my breast, a winter's chill holds,
+A silent dirge where once did swell a song.
+
+Oh, tell me, Love, does thy freed spirit roam
+Through realms ethereal, pure, and far from sight?
+Or dost thou linger near thy earthly home,
+A fleeting shadow in the fading light?
+
+Our love, a star, that burned with fiercest flame,
+Too pure, too bright, for mortal touch to dim,
+A sacred fire, whispering thy name,
+Upon the wind, a never-ending hymn.
+
+I gaze upon the vast, unpitying sky,
+And find no comfort, save the yearning deep,
+To close these weary eyes, and softly lie
+In slumber where our souls at last may sleep.
+
+So I shall walk, a ghost among the living,
+My soul a chalice, ever drained and dry,
+My only hope, the promise of forgiving,
+When I too join thee 'neath the boundless sky.
+My love, my life, my lost, eternal sigh!"
+Self-Critique Prompting,Write a poem about sunrise. Then critique your own poem: is the imagery vivid? Does the rhythm work? Are there stronger word choices?,"Here's a poem about sunrise, followed by a self-critique.
+
+---
+
+**Dawn's Unfurling**
+
+The eastern rim begins to gleam,
+A whisper in the sleeping night,
+Where shadows fade, a fading dream,
+And hint of coming golden light.
+
+The purples bleed to softest rose,
+Then orange washes wide and far,
+As gentle birds their songs compose,
+And twinkle fades from morning star.
+
+A golden rim, a rising sphere,
+Pushes above the sleeping ground,
+Dispelling mists, making things clear,
+Where quiet peace can now be found.
+
+The world awakes, a slow unfurl,
+Of petals opening to the day,
+A brand new promise for the world,
+As shadows chase themselves away.
+
+---
+
+**Self-Critique:**
+
+**1. Is the imagery vivid?**
+
+*   **Strengths:** I think many images are reasonably vivid. ""Eastern rim begins to gleam,"" ""purples bleed to softest rose,"" and ""orange washes wide and far"" effectively convey the color changes. ""Fading dream"" for the shadows, ""gentle birds their songs compose,"" and ""twinkle fades from morning star"" paint a quiet, awakening scene. ""A rising sphere,"" ""dispelling mists,"" and ""petals opening to the day"" offer clear visuals of the sun's emergence and nature's response. ""Shadows chase themselves away"" gives a dynamic, playful feel to the light's advance.
+*   **Could be stronger:** Some phrases are a bit generic. ""Sleeping night"" and ""sleeping ground"" could be more evocative – perhaps ""dormant night"" or ""slumbering earth"" to add more specific texture. ""Golden light"" is accurate but could be more unique; ""amber light,"" ""radiant gold,"" or ""molten light"" might offer a richer sensory experience. While ""making things clear"" is functional, a more poetic verb like ""etching forms"" or ""revealing contours"" could elevate the visual precision. The final stanza's ""brand new promise for the world"" is more abstract and thematic than purely visual, which isn't necessarily a flaw but could be grounded with a more concrete image if desired.
+
+**2. Does the rhythm work?**
+
+*   **Strengths:** The poem largely adheres to an iambic tetrameter (four iambs, or unstressed-stressed pairs, per line), creating a consistent and relatively smooth rhythm. Most lines have eight syllables, which helps maintain this meter. For example:
+    *   ""The **EAST**-ern **RIM** be-**GINS** to **GLEAM**""
+    *   ""A **WHIS**-per **IN** the **SLEEP**-ing **NIGHT**""
+    This regularity creates a steady, almost gentle flow that suits the gradual, peaceful nature of a sunrise. The ABAB rhyme scheme also contributes to this melodic quality without being too sing-songy.
+*   **Could be stronger:** While generally consistent, there are minor variations. For instance, ""Dispelling mists, making things clear"" maintains the syllable count but might have slightly more varied stresses compared to a perfectly strict iambic line. However, these small deviations aren't disruptive and allow for natural phrasing. The rhythm primarily works well to support the mood.
+
+**3. Are there stronger word choices?**
+
+*   **""Gleam"" vs. ""Kindle"" or ""Ignite"":** ""Gleam"" is good for the soft initial light, but ""kindle"" or ""ignite"" could suggest more active, nascent fire. I chose ""gleam"" for its gentleness.
+*   **""Bleed"" vs. ""Meld"" or ""Suffuse"":** ""Bleed"" works well for the blending of colors, but ""meld"" or ""suffuse"" could also convey the diffusion. ""Bleed"" feels more organic and slightly more dramatic.
+*   **""Washes"" vs. ""Spills"" or ""Envelops"":** ""Washes"" is effective for the broad spread of color. ""Spills"" might add a sense of overflow, and ""envelops"" a sense of completeness. ""Washes"" feels light and natural here.
+*   **""Compose"" vs. ""Lift"" or ""Chirp"":** ""Compose"" for birds' songs elevates the act, making it more deliberate and artistic. ""Chirp"" would be too simple, ""lift"" too generic. ""Compose"" adds a nice touch of grace.
+*   **""Pushes"" vs. ""Ascends"" or ""Emerges"":** ""Pushes"" gives a sense of effort and force to the sun's rise, which I like. ""Ascends"" is more formal, ""emerges"" more neutral. ""Pushes"" feels more dynamic.
+*   **""Unfurl"" vs. ""Unfold"" or ""Awaken"":** ""Unfurl"" is a strong choice for the world's awakening, especially paired with ""petals,"" implying a slow, beautiful revelation. ""Unfold"" is similar, but ""unfurl"" feels a bit more active.
+
+In conclusion, the poem successfully captures the essence of a sunrise with generally vivid imagery and a consistent, pleasant rhythm. While some word choices could be made more unique or active, the current vocabulary serves the peaceful, unfolding theme well. It evokes a sense of quiet beauty and new beginnings."
+Retrieval-Augmented Prompting,Use classical poetry examples about nature as inspiration. Now generate a new original piece in a similar style.,"Classical nature poetry often employs elevated language, personification, rich sensory details, and a contemplative, often moralizing tone, frequently focusing on a specific natural element and drawing deeper meaning from it. Poets like Wordsworth (""I Wandered Lonely as a Cloud""), Keats (""To Autumn""), and Shelley (""To a Skylark"") are prime examples.
+
+Here's a breakdown of common classical elements:
+*   **Elevated Diction:** Words like ""doth,"" ""ere,"" ""oft,"" ""hark,"" ""verdant,"" ""sylvan,"" ""zephyr.""
+*   **Personification:** Giving human qualities to nature (e.g., ""the winds did rave,"" ""Autumn mists"").
+*   **Detailed Imagery:** Evoking sight, sound, smell, touch (e.g., ""dappled shade,"" ""murmuring pines,"" ""balmy air"").
+*   **Contemplative Tone:** The poet reflecting on nature's beauty, power, or its relationship to the human spirit.
+*   **Formal Structure:** Often regular rhyme schemes (ABAB, AABB) and meter (like iambic pentameter).
+
+---
+
+**Inspiration Examples:**
+
+*   **William Wordsworth, ""I Wandered Lonely as a Cloud"" (The Daffodils):**
+    > I wandered lonely as a cloud
+    > That floats on high o'er vales and hills,
+    > When all at once I saw a crowd,
+    > A host, of golden daffodils;
+    > Beside the lake, beneath the trees,
+    > Fluttering and dancing in the breeze.
+
+*   **John Keats, ""To Autumn"":**
+    > Season of mists and mellow fruitfulness,
+    > Close bosom-friend of the maturing sun;
+    > Conspiring with him how to load and bless
+    > With fruit the vines that round the thatch-eves run;
+    > To bend with apples the moss'd cottage-trees,
+    > And fill all fruit with ripeness to the core;
+
+---
+
+**Original Piece: A Sylvan Reverie**
+
+When Sol's first blush doth kiss the eastern sky,
+And stirs the slumbering boughs where shadows lie,
+I seek the hush where sylvan secrets keep,
+And ancient stillness on the spirit deep.
+
+A silver thread, where cool reflections gleam,
+A crystal brook, the forest's waking dream,
+With murmuring voice, it talks to mossy stone,
+And sings a song for nature's ears alone.
+
+The ancient oaks, with crowns of verdant might,
+Cast dappled shade, and catch the sun's soft light.
+The leafy canopy, a living dome,
+Where timeless secrets find their quiet home.
+
+The thrush's song, a flute upon the breeze,
+Resounds among the whispering ancient trees.
+And unseen life, in subtle rustle goes,
+Where every root a hidden wisdom knows.
+
+Here, weary soul finds solace and repose,
+As earth's true rhythm gently ebbs and flows.
+A balm for thought, a quiet, deep release,
+This sylvan heart, a haven of true peace."
+Prompt Chaining,"Prompt 1: Choose a theme and tone (melancholy, hope).\nPrompt 2: Generate key images.\nPrompt 3: Compose the poem based on that outline.","Here is the poem created following your prompt:
+
+---
+
+**Prompt 1: Choose a theme and tone (melancholy, hope).**
+
+*   **Theme:** The quiet, inevitable fading of light and warmth, leading to a contemplative solitude and the soft embrace of memory.
+*   **Tone:** Melancholy, reflective, gentle sadness, tinged with a sense of quiet acceptance.
+
+---
+
+**Prompt 2: Generate key images.**
+
+*   **Initial Light/Warmth:** Golden hour, last ray of sun, amber glow, lingering warmth, embers.
+*   **Transition/Fading:** Long shadows, cooling air, twilight haze, sigh of the wind, dying fire.
+*   **Solitude/Absence:** Empty room, silent hearth, forgotten corner, dust motes, echoes, quiet steps.
+*   **Sensory (Sound/Smell):** Distant chimes, muted world, scent of damp earth, whispers of memory.
+*   **Feeling:** Gentle ache, quiet surrender, reflective peace, soft melancholy.
+
+---
+
+**Prompt 3: Compose the poem based on that outline.**
+
+**The Hearth's Last Glow**
+
+The last gold breath upon the pane,
+A fragile ember, soft and low.
+The day exhales a gentle pain,
+As longer shadows start to grow.
+
+The hearth's warm heart begins to cool,
+A quiet sigh where embers gleamed.
+The silence settles, soft and full,
+A world that only faintly dreamed.
+
+An echo waits in empty space,
+A ghost of laughter, light and free.
+A memory finds its gentle place,
+Within the fading, quiet me.
+
+The world contracts to shadowed peace,
+A quiet hum, a distant chime.
+A sweet, unhurried, soft release,
+Lost gently to the breath of time."
+Meta-Prompting,"Write a prompt template that helps anyone generate a poem with a consistent theme, emotional tone, and vivid imagery.","This prompt template is designed to guide users in providing specific details that will allow an AI to generate a poem with a cohesive vision. It breaks down the poetic elements into clear, actionable sections.
+
+---
+
+## **Poem Generation Template: Crafting Consistent & Vivid Verse**
+
+Use this template to provide the AI with all the necessary details to generate a poem that aligns with your vision for theme, emotional tone, and imagery. Fill in as many sections as you can for the best results!
+
+---
+
+### **[Poem Title/Concept (Optional, but helpful)]**
+*   *Example: ""Echoes of a Faded Bloom"" or ""Urban Dawn's Gentle Awakening""*
+
+---
+
+### **1. Central Theme & Core Subject:**
+*   What is the poem *fundamentally* about? Be as specific as possible.
+*   *(Examples: The fleeting nature of time, the resilience of nature in urban settings, a personal journey of healing, the quiet beauty of a specific season, the bittersweet nostalgia of childhood memories, a particular object like an old photograph or a forgotten tool.)*
+*   **Your Input:**
+
+---
+
+### **2. Desired Emotional Tone:**
+*   What feeling or mood should the poem evoke in the reader? Choose 1-3 primary emotions and a nuance.
+*   *(Examples: Melancholy & reflective, joyous & celebratory, tense & suspenseful, peaceful & serene, hopeful & inspiring, somber & mournful, whimsical & lighthearted, nostalgic & bittersweet.)*
+*   **Your Input:**
+
+---
+
+### **3. Key Imagery & Sensory Focus:**
+*   What specific images, symbols, or sensory details should dominate the poem? Think about what the reader should *see, hear, feel, smell, or taste*.
+*   **A. Dominant Sensory Modalities:** (e.g., primarily visual, strong auditory elements, tactile sensations)
+    *   **Your Input:**
+*   **B. Specific Objects/Symbols/Elements to Include:** (e.g., a wilting rose, city lights, a winding river, an old clock, morning fog, the scent of rain, the warmth of a fire)
+    *   **Your Input:**
+*   **C. Dominant Colors, Sounds, Textures, Smells, Tastes:** (e.g., muted grays and blues, the whisper of leaves, the rough texture of stone, the smell of damp earth, the bitter taste of regret)
+    *   **Your Input:**
+*   **D. Figurative Language Preferences:** (e.g., leaning towards vivid metaphors, frequent similes, personification, understatement)
+    *   **Your Input:**
+
+---
+
+### **4. Poetic Form & Style Elements (Optional, but enhances consistency):**
+*   Do you have a preference for the poem's structure or how it flows?
+*   **A. Length/Stanza Preference:** (e.g., 3-4 stanzas, a short haiku, a longer narrative poem, around 20 lines)
+    *   **Your Input:**
+*   **B. Rhyme Scheme Preference:** (e.g., Free Verse (no rhyme), AABB, ABAB, ABCB, a specific pattern)
+    *   **Your Input:**
+*   **C. Overall Rhythm/Flow:** (e.g., gentle and flowing, sharp and staccato, deliberate and measured, dynamic and energetic)
+    *   **Your Input:**
+*   **D. Language Complexity:** (e.g., simple and accessible, rich and evocative, formal, conversational)
+    *   **Your Input:**
+
+---
+
+### **5. Intended Impact/Purpose (Optional):**
+*   What feeling or thought should the reader be left with after reading the poem?
+*   *(Examples: A sense of peace, a call to reflection, a feeling of awe, a gentle melancholy, a spark of hope.)*
+*   **Your Input:**
+
+---
+
+### **6. Specific Exclusions or ""Don'ts"" (Optional):**
+*   Are there any themes, words, or styles you explicitly want to avoid?
+*   **Your Input:**
+
+---
+
+### **Example Usage:**
+
+**[Poem Title/Concept]** ""Whispers of the Ancestral Grove""
+
+**1. Central Theme & Core Subject:** The enduring wisdom and quiet strength of ancient trees, and their connection to memory and history.
+
+**2. Desired Emotional Tone:** Serene & deeply contemplative, with a touch of ancient reverence and subtle melancholy for lost time.
+
+**3. Key Imagery & Sensory Focus:**
+    *   **A. Dominant Sensory Modalities:** Primarily visual and auditory, with strong tactile and olfactory suggestions.
+    *   **B. Specific Objects/Symbols/Elements to Include:** Gnarled roots, dappled sunlight, lichen-covered bark, rustling leaves, the scent of damp earth, shadows stretching long, a faint echo.
+    *   **C. Dominant Colors, Sounds, Textures, Smells, Tastes:** Deep greens, earthy browns, golden light; soft rustling, low hum, distant sigh; rough, cool bark, smooth moss; petrichor, ancient wood.
+    *   **D. Figurative Language Preferences:** Gentle personification of trees, subtle metaphors linking trees to time/memory.
+
+**4. Poetic Form & Style Elements:**
+    *   **A. Length/Stanza Preference:** 4-5 stanzas, around 4 lines per stanza.
+    *   **B. Rhyme Scheme Preference:** ABCB or Free Verse with a consistent flow.
+    *   **C. Overall Rhythm/Flow:** Gentle, slow, and deliberate, mimicking the slow growth of trees.
+    *   **D. Language Complexity:** Rich and evocative, but accessible.
+
+**5. Intended Impact/Purpose:** To leave the reader with a feeling of deep peace, a connection to timeless natural wisdom, and a quiet sense of wonder.
+
+**6. Specific Exclusions or ""Don'ts"":** Avoid overly dramatic or overtly sad tones. No direct mentions of human conflict.
+
+---
+
+**Now, copy and paste the template and fill it out for your desired poem!**"

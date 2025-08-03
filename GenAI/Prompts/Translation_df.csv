@@ -1,0 +1,446 @@
+Prompting Technique,Example Prompt,gemini Response
+Zero-Shot Prompting,Translate the following sentence from English to French: “The weather is nice today.”,"The most common and natural translation is:
+
+**Il fait beau aujourd'hui.**"
+Few-Shot Prompting,Example 1: “Hello” → “Hola”\nExample 2: “Good night” → “Buenas noches”\nNow translate: “Where are you going?” into Spanish.,"""Where are you going?"" → ""¿A dónde vas?"""
+Chain-of-Thought Prompting,Identify the subject and verb in the sentence. Consider grammar rules in the target language. Now translate: “She has been waiting for hours.”,"Here's the breakdown:
+
+**Identifying Subject and Verb (English):**
+
+*   **Sentence:** ""She has been waiting for hours.""
+*   **Subject:** **She** (the person performing the action)
+*   **Verb:** **has been waiting** (This is a verb phrase in the present perfect continuous tense. ""Has,"" ""been,"" and ""waiting"" all work together as the main verb.)
+
+**Translation (Spanish):**
+
+The most common and natural way to translate ""She has been waiting for hours"" in Spanish, emphasizing the ongoing action and duration, uses the construction ""llevar + time + gerund"":
+
+*   **Ella lleva horas esperando.**
+
+*   **Explanation of Spanish Grammar:**
+    *   **Ella:** She
+    *   **lleva:** (from the verb *llevar* - to carry/to take/to wear). In this context, *llevar* is used idiomatically to mean ""to have been (doing something) for (a period of time)."" It's conjugated for ""ella"" (third person singular, present tense).
+    *   **horas:** hours (the ""for"" is implied by the ""llevar"" construction).
+    *   **esperando:** waiting (the gerund form of *esperar* - to wait).
+
+A more literal, but slightly less common/natural translation using the Spanish equivalent of the present perfect continuous would be:
+*   **Ella ha estado esperando por horas.**"
+Iterative Refinement Prompting,Initial translation: “Elle est attendu.”\nReview: Tense is incorrect. Revise to: “Elle a attendu.” Refine again for clarity: “Elle attend depuis des heures.”,"Let's break down the evolution of the sentence and why each change was made.
+
+The core issue seems to be a misunderstanding of the original English phrase's meaning, leading to an incorrect initial French translation, and then a refinement towards the correct one.
+
+---
+
+**1. Initial translation: ""Elle est attendu.""**
+
+*   **Grammatical Error:** The past participle ""attendu"" should agree with the subject ""Elle"" when used with ""être."" It should be ""attendue"" (feminine singular).
+*   **Meaning Error (Crucial):**
+    *   ""Elle est attendue."" (Corrected agreement: ""Elle est attendue."") means **""She is expected.""** (passive voice)
+    *   This is fundamentally different from ""She is waiting"" or ""She has been waiting."" The initial translation completely changed the subject's role (from performing the action to receiving it).
+
+---
+
+**2. Review: Tense is incorrect. Revise to: ""Elle a attendu.""**
+
+*   **What this means:** ""Elle a attendu."" is the passé composé of ""attendre"" (to wait). It means **""She waited""** or **""She has waited.""** (active voice)
+*   **Improvement:** This is a huge step in the right direction because it correctly shifts the subject ""Elle"" to actively performing the action of ""waiting,"" rather than being ""expected.""
+*   **Remaining Nuance:** While grammatically correct for ""She waited,"" it doesn't fully capture the English ""She *has been* waiting for hours"" or ""She *is* waiting for hours."" In English, ""has been waiting"" implies an action that started in the past and continues into the present. French has a specific way to express this.
+
+---
+
+**3. Refine again for clarity: ""Elle attend depuis des heures.""**
+
+*   **Why this is the best translation (for ""She has been waiting for hours""):**
+    *   **French Rule:** For actions that started in the past and are still ongoing in the present, French uses the **present tense** + **""depuis""** (for/since) + the duration.
+    *   ""**Elle attend**"" (present tense of ""attendre"") = ""She waits"" / ""She is waiting""
+    *   ""**depuis des heures**"" = ""for hours""
+    *   Combined, ""Elle attend depuis des heures"" perfectly conveys ""She has been waiting for hours"" or ""She is waiting for hours.""
+
+**Summary of the Progression:**
+
+*   **""Elle est attendu(e).""** = **She is expected.** (Passive, wrong meaning if the original was ""she is waiting."")
+*   **""Elle a attendu.""** = **She waited / She has waited.** (Active, correct meaning but implies a completed action or a simple past, not ongoing duration.)
+*   **""Elle attend depuis des heures.""** = **She has been waiting for hours.** (Active, perfectly captures ongoing action with duration.)
+
+The last refinement is indeed the most natural and accurate translation if the original English was intended to mean ""She has been waiting for hours."""
+Tree-of-Thought Prompting,"Provide three possible translations of “He runs fast.” into German, explaining the nuance in each version. Choose the best based on context.","Here are three possible translations of ""He runs fast"" into German, with explanations of their nuances:
+
+1.  **Er läuft schnell.**
+    *   **Nuance:** This is the most **neutral, common, and direct** translation. ""Laufen"" is the standard verb for ""to run"" (or sometimes ""to walk,"" depending on context, but ""schnell"" clearly implies running here). It simply states a fact about his speed without any particular emphasis on urgency, intensity, or exceptionalism. It's the go-to for a general statement.
+
+2.  **Er rennt schnell.**
+    *   **Nuance:** The verb ""rennen"" implies a **higher intensity, urgency, or competitive effort** than ""laufen."" If someone ""rennt,"" they are actively sprinting, rushing, or running with a clear purpose or greater speed. While still factual, it suggests a more dynamic and possibly urgent situation than ""laufen."" It's often used when talking about racing or running to catch something.
+
+3.  **Er rennt pfeilschnell.**
+    *   **Nuance:** This translation uses the verb ""rennen"" (for intensity) combined with the compound adjective ""pfeilschnell"" (literally ""arrow-fast""). ""Pfeilschnell"" is a more **emphatic and descriptive** way to say ""extremely fast"" or ""lightning fast."" It suggests an exceptional, almost remarkable level of speed, often used to convey admiration or surprise at how fast someone is. It's not just fast; it's *remarkably* fast.
+
+---
+
+### Choosing the Best Based on Context
+
+**Context:** You are simply observing someone's general ability, perhaps in a casual conversation about their athletic capabilities or just making an everyday observation. There's no particular urgency, competition, or exceptional admiration implied.
+
+**Best Translation:** **Er läuft schnell.**
+
+**Explanation:** In this most common and general context, ""Er läuft schnell"" is the most appropriate. It's the standard, neutral way to state the fact that someone runs quickly. It doesn't overstate the situation with added intensity (""rennen"") or hyperbole (""pfeilschnell""), making it suitable for everyday conversation where a simple statement of speed is sufficient. The other options would imply more specific circumstances or a stronger emotional tone that isn't present in a neutral observation."
+Role-Playing Prompting,You are a professional translator specializing in legal documents. Translate the following contract clause from English to Arabic.,"Okay, here is the translation of the contract clause, suitable for a legal document:
+
+**English Original:**
+
+""This Agreement, together with all schedules, exhibits, and addenda attached hereto, constitutes the entire agreement between the parties. It supersedes all prior discussions, negotiations, and agreements, whether oral or written, relating to the subject matter hereof.""
+
+---
+
+**Arabic Translation:**
+
+""تشكل هذه الاتفاقية، إلى جانب كافة جداولها ومرفقاتها وملاحقها الإضافية الملحقة بها، الاتفاق الكامل والوحيد بين الطرفين. وهي تحل محل وتلغي كافة المناقشات والمفاوضات والاتفاقيات السابقة، سواء كانت شفهية أو كتابية، والمتعلقة بموضوع هذه الاتفاقية."""
+Self-Critique Prompting,"Translate this sentence to Japanese. Now evaluate your output for accuracy, tone, and idiomatic usage. Suggest and apply improvements.","Here's the translation and evaluation:
+
+---
+
+### Japanese Translation
+
+**この文を日本語に翻訳してください。**
+*(Kono bun o Nihongo ni hon'yaku shite kudasai.)*
+
+---
+
+### Evaluation
+
+1.  **Accuracy:**
+    *   **Grammar:** Excellent. The particle 「を」(o) correctly marks 「この文」(kono bun - ""this sentence"") as the direct object. The particle 「に」(ni) correctly indicates the target language 「日本語」(Nihongo - ""Japanese""). The verb 「翻訳する」(hon'yaku suru - ""to translate"") is appropriate, and 「～してください」(shite kudasai) forms a polite command/request.
+    *   **Vocabulary:** All words are correctly chosen:
+        *   「この」(kono): ""this""
+        *   「文」(bun): ""sentence""
+        *   「日本語」(Nihongo): ""Japanese language""
+        *   「翻訳する」(hon'yaku suru): ""to translate"" (specifically, a more formal/academic term for translation)
+        *   「～してください」(shite kudasai): polite request/command ending.
+    *   **Meaning:** The translation accurately conveys the original English sentence's meaning and intent as a directive.
+
+2.  **Tone:**
+    *   The tone is polite and professional. 「～してください」is a standard polite request form in Japanese. It's suitable for instructing an AI, a service, or a person in a non-hierarchical or slightly superior position (e.g., a teacher to a student, though it's still respectful). It's not overly formal, nor is it casual.
+
+3.  **Idiomatic Usage:**
+    *   This phrase is perfectly idiomatic and natural for a Japanese speaker. It's a very common way to ask someone to translate something.
+
+---
+
+### Suggestions and Applied Improvements
+
+While the initial translation is excellent, there are a couple of common alternatives that offer slight variations in nuance, which can be considered ""improvements"" depending on the precise subtle feeling you want to convey.
+
+**1. Alternative verb for ""translate"": 「訳す」(yakusu)**
+
+*   **Original:** 翻訳してください (hon'yaku shite kudasai) - uses 「翻訳する」 (hon'yaku suru), which is slightly more formal or academic.
+*   **Improvement/Alternative:** Replace 「翻訳する」 with 「訳す」(yakusu). 「訳す」 is a very common and slightly less formal verb for ""to translate,"" often used in everyday conversation.
+
+    *   **Application:**
+        **この文を日本語に訳してください。**
+        *(Kono bun o Nihongo ni yakushite kudasai.)*
+        *   **Evaluation:** Equally accurate and idiomatic. The tone is still polite. Often feels a bit more natural for a simple request like this.
+
+**2. Focusing on the ""request for the translation"" rather than the ""action of translating"": 「～をお願いします」(o onegai shimasu)**
+
+*   **Original:** 「翻訳してください」 (hon'yaku shite kudasai) - focuses on *doing* the action of translating.
+*   **Improvement/Alternative:** You can frame it as ""Please give me the Japanese translation of this sentence."" This shifts the focus from commanding the action to requesting the *result* or *product* of the translation. This is often perceived as slightly softer or more humble.
+
+    *   **Application:**
+        **この文の日本語訳をお願いします。**
+        *(Kono bun no Nihongo-yaku o onegai shimasu.)*
+        *   **Breakdown:**
+            *   「この文の」(Kono bun no): ""of this sentence""
+            *   「日本語訳」(Nihongo-yaku): ""Japanese translation"" (noun form)
+            *   「をお願いします」(o onegai shimasu): ""I request/please give me...""
+        *   **Evaluation:** Highly accurate, very polite, and extremely common. The tone is respectful and indirect, which is often preferred in Japanese communication. This is arguably the most common and polite way a user might request a translation from an AI or service.
+
+---
+
+**Summary of Recommendations:**
+
+*   **For a direct, polite command/instruction (like you're telling an AI what to do):**
+    *   **この文を日本語に翻訳してください。** (Original, excellent)
+    *   **この文を日本語に訳してください。** (Slightly more common, less formal verb)
+
+*   **For a very polite and slightly softer request (like asking a service for a result):**
+    *   **この文の日本語訳をお願いします。** (Highly recommended for general requests)"
+Retrieval-Augmented Prompting,Use examples from bilingual corpora to translate “sustainable development” into Chinese with the appropriate technical connotation.,"The most appropriate and universally recognized translation for ""sustainable development"" in Chinese, carrying the correct technical connotation, is:
+
+**可持续发展 (kěchíxù fāzhǎn)**
+
+Let's break down why this is the case, using examples from bilingual corpora:
+
+---
+
+### Analysis and Connotation:
+
+1.  **可持续 (kěchíxù):**
+    *   **可 (kě):** ""can,"" ""able to.""
+    *   **持续 (chíxù):** ""continue,"" ""last,"" ""maintain.""
+    *   Together, 可持续 precisely conveys ""sustainable"" – capable of being maintained over a long period without depleting resources or causing collapse.
+
+2.  **发展 (fāzhǎn):**
+    *   **发展 (fāzhǎn):** ""development,"" ""growth,"" ""progress."" This is the standard term for development in economic, social, and technological contexts.
+
+When combined, **可持续发展 (kěchíxù fāzhǎn)** directly translates the concept of ""development that meets the needs of the present without compromising the ability of future generations to meet their own needs"" (the Brundtland definition). It fully encompasses the interconnectedness of environmental protection, social equity, and economic viability.
+
+---
+
+### Examples from Bilingual Corpora:
+
+In official documents, academic papers, news reports, and international organization publications, **可持续发展** is the *de facto* and exclusive translation.
+
+**Example 1: United Nations Documents (Most common source)**
+
+*   **English:** ""The 2030 Agenda for Sustainable Development.""
+*   **Chinese:** ""2030年**可持续发展**议程。""
+    *   *Source Context:* Found extensively in UN reports, resolutions, and official websites in both English and Chinese. This specific phrase is central to global development discourse.
+
+**Example 2: Government Policy and National Strategies**
+
+*   **English:** ""China has made promoting sustainable development a fundamental national strategy.""
+*   **Chinese:** ""中国已将推动**可持续发展**确立为一项基本国策。""
+    *   *Source Context:* Appears in white papers, government work reports, and policy declarations by the Chinese government, indicating the term's official and strategic importance.
+
+**Example 3: Economic and Environmental Context**
+
+*   **English:** ""Achieving sustainable economic development requires balancing growth with environmental protection.""
+*   **Chinese:** ""实现**可持续经济发展**需要平衡增长与环境保护。""
+    *   *Source Context:* Common in economic analyses, environmental policy papers, and business sustainability reports. Note how ""sustainable"" (可持续) can modify specific types of development.
+
+**Example 4: Specific Goals/Areas (e.g., Agriculture, Cities)**
+
+*   **English:** ""Our goal is to promote sustainable agriculture and rural development.""
+*   **Chinese:** ""我们的目标是促进**农业可持续发展**和乡村发展。""
+    *   *Source Context:* Frequently seen in agricultural policies, urban planning documents, and academic research on specific sectors. The structure might slightly shift (e.g., ""agriculture sustainable development""), but the core term remains.
+
+---
+
+### Technical Connotation Summary:
+
+The term **可持续发展 (kěchíxù fāzhǎn)** carries the full weight of its English counterpart, including:
+
+1.  **Intergenerational Equity:** The idea that current generations should not compromise the ability of future generations to meet their own needs.
+2.  **Three Pillars:** It implicitly refers to the three interconnected dimensions:
+    *   **Environmental Protection (环境保护):** Preserving natural resources, biodiversity, and ecosystem services.
+    *   **Social Equity (社会公平):** Ensuring fair distribution of resources and opportunities, poverty reduction, and human well-being.
+    *   **Economic Viability (经济可行性):** Promoting economic growth that is efficient, inclusive, and capable of generating wealth without depletion.
+3.  **Holistic Approach:** It signifies a shift from siloed thinking to an integrated approach to problem-solving, recognizing that environmental, social, and economic issues are interdependent.
+
+In conclusion, **可持续发展 (kěchíxù fāzhǎn)** is the definitive and technically precise translation for ""sustainable development"" in Chinese, widely adopted across all relevant fields and consistently appearing in high-quality bilingual corpora."
+Prompt Chaining,Prompt 1: Break down sentence grammar.\nPrompt 2: Translate each component.\nPrompt 3: Reconstruct into fluent French.,"Okay, this is an excellent approach to mastering a new language! Let's pick an example English sentence and break it down using your three prompts.
+
+**English Sentence for Analysis:**
+""She carefully placed the old book on the wooden table.""
+
+---
+
+## Prompt 1: Break down sentence grammar.
+
+Here's the grammatical breakdown of ""She carefully placed the old book on the wooden table"":
+
+1.  **""She""**
+    *   **Grammar:** Pronoun (Personal, Subjective)
+    *   **Role:** Subject of the sentence (who is performing the action)
+
+2.  **""carefully""**
+    *   **Grammar:** Adverb of manner
+    *   **Role:** Modifies the verb ""placed,"" describing *how* the action was performed.
+
+3.  **""placed""**
+    *   **Grammar:** Verb (Transitive, Past Tense)
+    *   **Role:** Main verb, indicating the action performed by the subject.
+
+4.  **""the""**
+    *   **Grammar:** Definite Article
+    *   **Role:** Specifies the noun ""book.""
+
+5.  **""old""**
+    *   **Grammar:** Adjective
+    *   **Role:** Modifies the noun ""book,"" describing its quality.
+
+6.  **""book""**
+    *   **Grammar:** Noun
+    *   **Role:** Direct Object of the verb ""placed"" (what was placed).
+
+7.  **""on""**
+    *   **Grammar:** Preposition
+    *   **Role:** Connects the verb/object to the location, initiating a prepositional phrase.
+
+8.  **""the""**
+    *   **Grammar:** Definite Article
+    *   **Role:** Specifies the noun ""table.""
+
+9.  **""wooden""**
+    *   **Grammar:** Adjective (or more accurately, an adjectival phrase in French)
+    *   **Role:** Modifies the noun ""table,"" describing its material.
+
+10. **""table""**
+    *   **Grammar:** Noun
+    *   **Role:** Object of the preposition ""on,"" indicating the location.
+
+---
+
+## Prompt 2: Translate each component.
+
+Now, let's translate each identified component into its most appropriate French equivalent, considering context, gender, and number.
+
+1.  **""She""**
+    *   **French:** *Elle* (feminine singular subject pronoun)
+
+2.  **""carefully""**
+    *   **French:** *soigneusement* (adverb, often formed by adding -ment to the feminine form of the adjective *soigneux/soigneuse*)
+
+3.  **""placed""**
+    *   **French:** *a placé* (This is the *passé composé* of the verb *placer* (to place), used for a completed action in the past. It uses the auxiliary verb *avoir* (to have) + the past participle *placé*.)
+
+4.  **""the"" (for book)**
+    *   **French:** *le* (masculine singular definite article, because ""book"" is *un livre*, a masculine noun in French)
+
+5.  **""old"" (for book)**
+    *   **French:** *vieux* (masculine singular adjective. Note that some common adjectives like *vieux* (old), *bon* (good), *beau* (beautiful), etc., often *precede* the noun in French.)
+
+6.  **""book""**
+    *   **French:** *livre* (masculine noun)
+
+7.  **""on""**
+    *   **French:** *sur* (preposition)
+
+8.  **""the"" (for table)**
+    *   **French:** *la* (feminine singular definite article, because ""table"" is *une table*, a feminine noun in French)
+
+9.  **""wooden""**
+    *   **French:** *en bois* (This is a common way to express ""made of wood"" in French, literally ""in wood."" It functions as an adjectival phrase and typically follows the noun.)
+
+10. **""table""**
+    *   **French:** *table* (feminine noun)
+
+---
+
+## Prompt 3: Reconstruct into fluent French.
+
+Now, let's put these pieces back together, applying French syntax and grammar rules (like verb conjugation, adjective placement, and adverb placement).
+
+**Initial Components (in approximate order):**
+*Elle* / *a placé* / *soigneusement* / *le* / *vieux* / *livre* / *sur* / *la* / *table* / *en bois*
+
+**Reconstruction Process:**
+
+1.  **Subject & Verb:** Start with the subject and the conjugated verb.
+    *   *Elle a placé...*
+
+2.  **Adverb Placement:** In *passé composé*, adverbs of manner like *soigneusement* typically go *after* the auxiliary verb and *before* the past participle, or sometimes after the entire verb phrase, but placing it before the participle is very common and natural here.
+    *   *Elle a soigneusement placé...*
+
+3.  **Direct Object:** Now, add the direct object with its articles and adjectives. Remember *vieux* comes *before* *livre*.
+    *   *Elle a soigneusement placé le vieux livre...*
+
+4.  **Prepositional Phrase:** Finally, add the prepositional phrase describing the location. Remember *en bois* comes *after* *table*.
+    *   *...sur la table en bois.*
+
+**Fluent French Sentence:**
+
+**Elle a soigneusement placé le vieux livre sur la table en bois.**
+
+---
+
+**Key Learnings from this exercise:**
+
+*   **Verb Tense:** English simple past ""placed"" often translates to French *passé composé* (*a placé*) for completed actions.
+*   **Adverb Placement:** Adverbs in compound tenses often go between the auxiliary verb and the past participle (*a soigneusement placé*).
+*   **Adjective Placement:** Some common adjectives (like *vieux*, *bon*, *grand*, *beau*) precede the noun, while most others (and adjectival phrases like *en bois*) follow the noun.
+*   **Gender Agreement:** French nouns have gender (*livre* is masculine, *table* is feminine), which dictates the definite article (*le* vs. *la*) and potentially adjective endings (though not directly visible in *vieux* vs. *en bois* here, it's crucial for other adjectives).
+
+This method helps you understand not just *what* the translation is, but *why* it is that way, which is crucial for building your own sentences!"
+Meta-Prompting,"Write a prompt that would guide someone to translate informal social media posts from English to Korean, preserving tone and emojis.","Here's a prompt designed to guide someone in translating informal social media posts from English to Korean, with a strong emphasis on preserving tone and emojis:
+
+---
+
+**Translation Prompt: English to Korean Social Media Vibe Master**
+
+**Your Mission:** Translate the provided informal English social media posts into natural-sounding Korean, capturing their original tone, humor, excitement, sarcasm, and casual feel. **Crucially, every single emoji must be preserved in its original location.**
+
+**Why this matters:** Social media communication is all about conveying personality and immediate feeling. A literal translation will often fall flat and lose the essence of the original post. We want the Korean translation to feel like it was originally written by a native Korean speaker on a social media platform, not a stiff academic translation.
+
+---
+
+**Core Principles to Guide Your Translation:**
+
+1.  **Prioritize Naturalness & Tone over Literal Accuracy:**
+    *   Don't translate word-for-word. Focus on the *intent* and *feeling* of the original post.
+    *   Ask yourself: ""How would a Korean friend express this same thought or emotion on their social media?""
+    *   Aim for a **casual, conversational, and often playful** tone.
+
+2.  **Maintain Brevity & Punchiness:**
+    *   Social media posts are usually short and to the point. Avoid overly long or complex sentences in Korean unless the original demands it.
+    *   Use common Korean internet slang or abbreviations where appropriate and natural.
+
+3.  **Preserve ALL Emojis:**
+    *   Copy them directly as they appear in the English text. Do not remove, add, or change them. Their placement often conveys specific nuance.
+
+4.  **Understand the Context:**
+    *   While individual posts are short, try to infer the general context (e.g., is it a comment on a photo? A status update? A response to someone else?). This helps with appropriate phrasing.
+
+---
+
+**Key Translation Strategies to Employ:**
+
+*   **Korean Speech Levels:** Almost exclusively use **informal speech levels**.
+    *   **해체 (Haeche):** The most casual, often used among close friends or for general announcements. (e.g., ~다, ~지, ~요/야, ~네, ~군).
+    *   **해요체 (Haeyoche):** Also informal, but slightly more polite than 해체, often used for general online interactions (e.g., ~어요/~아요).
+    *   **Avoid:** Formal/polite forms like 합니다체 (Hapnida-che) unless the original English post is surprisingly formal.
+
+*   **Slang & Internet Vernacular:**
+    *   **English Slang:** Don't translate literally. Find the Korean equivalent that conveys the same meaning and vibe.
+        *   *Examples:*
+            *   ""Lit"" -> 쩐다, 대박이다, 개쩐다
+            *   ""OMG"" -> 헐, 대박, 세상에
+            *   ""LOL"" -> ㅋㅋㅋㅋ, 키키키
+            *   ""FOMO"" -> 놓치는 게 아쉬움, 나만 못 감
+            *   ""BFF"" -> 베프 (Bepeu)
+    *   **Korean Internet Slang:** Feel free to use common Korean internet slang and abbreviations where they fit naturally (e.g., 존맛탱 (JMT), ㄱㄱ (go go), ㅇㅇ (yes)).
+
+*   **Abbreviations & Acronyms:**
+    *   If the English abbreviation is well-known globally (e.g., ""ASAP""), consider if the equivalent Korean is common. Otherwise, translate the underlying meaning.
+
+*   **Humor, Sarcasm, & Irony:**
+    *   This is the trickiest part. Think about how a Korean speaker would convey these. Often involves specific particles, intonation (implied), or common ironic phrases.
+    *   *Example:* English sarcasm like ""Oh, great."" might become ""아주 좋네."" (with an implied tone) or ""잘~한다."" (sarcastically).
+
+*   **Interjections & Onomatopoeia:**
+    *   Utilize common Korean interjections (e.g., 헐, 왘, 으악, 어머나) and onomatopoeia/mimetic words (e.g., 두근두근, 꼬물꼬물, 쨍). These add a lot of ""flavor.""
+
+*   **Grammar & Sentence Structure:**
+    *   Feel free to adapt English sentence structures to more natural Korean flow. Sentence fragments are often fine if they maintain the original meaning.
+    *   Consider omitting subjects or particles if it makes the sentence sound more natural and conversational in Korean.
+
+*   **Cultural Nuances:**
+    *   Be mindful of any culture-specific references. If an English reference would be completely lost on a Korean audience, consider a culturally equivalent adaptation (if possible without losing the original meaning) or add a very brief, subtle explanation if absolutely necessary (rarely ideal for social media).
+
+---
+
+**Format Your Output:**
+
+Please provide both the original English post and your Korean translation clearly.
+
+**Example:**
+
+**Source English:**
+> Omg this concert was SO lit! My voice is gone but totally worth it 🎤✨ #BestNightEver
+
+**Korean Translation:**
+> 헐 이 콘서트 완전 쩐다! 목소리 나갔는데 ㄹㅇ 개이득 🎤✨ #역대급밤
+
+---
+
+**Final Check Before Submitting:**
+
+*   Read your Korean translation aloud. Does it sound like something a native Korean would post on Instagram, Twitter, or KakaoStory?
+*   Have you preserved *all* the emojis?
+*   Does it capture the same level of excitement, informality, or specific emotion as the original?
+*   Is it concise and engaging?
+
+---
+
+**Now, apply these guidelines to the following posts:**
+
+**(Insert list of social media posts here)**"
